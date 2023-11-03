@@ -1,0 +1,310 @@
+
+.logo{
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.login{
+    display: flex;
+    width: 1rem;
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+}
+
+.login:hover{
+    transform: scale(1.1);
+    transition: 330ms;
+    transform-origin: center;
+}
+
+.logo-user{
+ width: 1.5rem;
+ height: 1.2rem;
+ margin-left: 0;
+ padding-left: 1rem;
+}
+
+.mask{
+    position: absolute;
+    background-color: rgb(0 0 0 / 0.64);
+    width: 100%;
+    height: 100%;
+}
+
+/* cosas del main */
+
+/* Promos */
+
+.promos-container{
+    margin: 4rem 9rem 3rem 9rem;
+    overflow: hidden;
+}
+
+.promos-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-lg);
+    margin-bottom:2.188rem;
+}
+
+.promos{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 300%;
+}
+
+.ctn-img{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    column-gap: 4rem;
+    padding-left: 1rem;
+    transition: transform 0.5s ease; 
+}
+
+.promos-images:hover{
+    transform: scale(.960);
+    transition: 500ms;
+    border-radius: 1rem;
+}
+
+.promos-images{
+    width: 30.875rem;
+    height: 25rem;
+}
+
+.promos-points{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.point{
+    width: 2rem;
+    height: 2rem;
+    background: rgb(124, 124, 125);
+    border-radius: 50%;
+    list-style: none;
+    margin: 1rem;
+}
+
+.point:hover{
+    transform: scale(.9);
+    transition: 400ms;
+}
+
+.point--active{
+    background-color: rgb(164, 29, 29);
+}
+
+/* Promos */
+
+
+
+
+
+.text-end{
+    font-family: var(--font_marcellus);
+    font-size: var(--font-size-sm);
+    text-align: center;
+    color: var(--white);
+    margin: 3rem 0 0 0;
+}
+
+.ctn-form{
+    padding-left: 2rem;
+}
+
+.subtitle{
+    font-family: var(--font_roboto) ;
+    font-size: var(--font-size-md) ;
+    font-weight: 700;
+    
+    
+}
+
+.form{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0.125rem solid var(--secondary_color);
+    border-radius: 1.8rem;
+    padding: .5rem 1rem;
+    width: 20rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.placeholder{
+    background: var(--footer_color);
+    border-style: none;
+    outline: none;
+    color: var(--white);
+    font-family: var(--font_marcellus);
+    font-size: var(--font-size-sm);
+}
+
+.placeholder::placeholder{
+    color: var(--white);
+    font-family: var(--font_marcellus);
+    font-size: var(--font-size-sm);
+    font-weight: lighter;
+}
+
+.submit{
+    background: url(../../img/send.png)  ;
+    border: none;
+    background-repeat: no-repeat;
+    border-radius: 1.2rem;
+    padding: .5rem 1rem;
+    margin: 0;
+    background-position: center;
+    cursor: pointer;
+}
+
+.submit:hover{
+    transform: scale(.950);
+    transition: 400ms;
+}
+
+
+
+/* categories html */
+
+.categories-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 9rem;
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-md);
+}
+
+.each-category:hover{
+    transform: scale(1.1);
+    transition: 350ms;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.categorie-mask-Appetizers{
+    border-radius: 50%;
+    overflow: hidden;
+    width: 14.188rem;
+    height: 14.188;
+    background: #000;
+}
+
+.categories-image{
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+}
+
+.text-set{
+    font-weight: normal;
+    text-align: center;
+    font-weight: 500;
+    padding-top: .6rem;
+    
+}
+
+
+
+
+/* platillos html */
+
+.dish{
+    margin: 3rem 9rem;
+}
+
+.dish-information{
+    display: flex; 
+    justify-content: space-between;
+}
+
+.dish-title{
+    margin: 0 auto;
+    font-family: var(--font_titles);
+    font-size: var(--font-size-xxl);
+    font-weight: bold; 
+  
+}
+
+.dish-subtitle{
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.dish-text{
+    font-family: var(--font_marcellus);
+    font-size: var(--font-size-md);
+    width: 60rem;
+}
+
+.dish-price{
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-xl);
+    font-weight: bold; 
+}
+
+.ctn-btn-add{
+    background: var(--footer_color);
+    width: 100%;
+    margin: auto;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    color: var(--black);
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    background: var(--secondary_color);
+    border-radius: 5rem;
+    border-style: none;
+    cursor: pointer;
+
+    margin: 0 auto;
+    padding: .8rem;
+    width: 48rem;
+    height: 5rem;
+}
+
+.btn-add:hover{
+    transform: scale(.940);
+    transition: 700ms;
+}
+
+.circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+
+}
+
+.dish-img:hover{
+    transform: rotate(214deg);
+    transition: 500ms;
+}
+
+
+
