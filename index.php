@@ -26,7 +26,7 @@
 
         <div class="header-red-bar">
             <div class="header-ctn">
-                <a class="logo" href="index.html">
+                <a class="logo" href="index.php">
                     <img src="./img/graphic-identifier.png" alt="graphic-identifier">
                 </a>
 
@@ -40,15 +40,15 @@
                 <!-- mobile nav btn -->
 
                 <nav class="navigation">
-                    <a class="navigation-link" href="index.html">Home</a>
-                    <a class="navigation-link" href="categories.html">Product</a>
+                    <a class="navigation-link" href="index.php">Home</a>
+                    <a class="navigation-link" href="categories.php">Product</a>
                     <a class="navigation-link" href="#">Restaurant</a>
                     <a class="navigation-link" href="#">Contact</a>
 
-                    <a class="login" href="#">
+                    <a class="login" href="register.php">
                         <img class="logo-user" src="./img/user.png" alt="user-logo">
                     </a>
-                    <a class="login" href="#">Login</a>
+                    <a class="login" href="register.php">Login</a>
                 </nav>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     ¡Conquering palates!
                 </h4>
 
-                <a class="bnr-button bnr-fund" href="platillo.html">Reserve now</a>
+                <a class="bnr-button bnr-fund" href="platillo.php">Reserve now</a>
 
             </div>
         </div>
@@ -78,17 +78,17 @@
             <div class="promos">
 
                 <div class="ctn-img">
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
 
-                    <a href="platillo.html"><img class="promos-images" src="./img/bebidas.jpg" alt="promo"></a>
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/bebidas.jpg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
 
-                    <a href="platillo.html"><img class="promos-images" src="./img/entrada.jpg" alt="promo"></a>
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.html"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/entrada.jpg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
 
                 </div>
 
@@ -115,7 +115,7 @@
 
                     <div class="carousel">
                         <div class="carousels-image-container">
-                            <a href="platillo.html" class="image-mask">
+                            <a href="platillo.php" class="image-mask">
                                 <img class="carousels-image" src="./img/paella.jpg" alt="dish">
                             </a>
                         </div>
@@ -136,7 +136,7 @@
 
                     <div class="carousel">
                         <div class="carousels-image-container">
-                            <a href="platillo.html" class="image-mask">
+                            <a href="platillo.php" class="image-mask">
                                 <img class="carousels-image" src="./img/arroz al horno.png" alt="dish">
                             </a>
                         </div>
@@ -169,28 +169,28 @@
 
             <div class="cards-container">
 
-                <a href="categories.html" class="cards-info img-size appetizers ">
+                <a href="categories.php" class="cards-info img-size appetizers ">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Entradas</h2>
                     </div>
                 </a>
 
-                <a href="categories.html" class="cards-info img-size main-course">
+                <a href="categories.php" class="cards-info img-size main-course">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Plato Fuerte</h2>
                     </div>
                 </a>
 
-                <a href="categories.html" class="cards-info img-size desserts">
+                <a href="categories.php" class="cards-info img-size desserts">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Postres</h2>
                     </div>
                 </a>
 
-                <a href="categories.html" class="cards-info img-size drinks">
+                <a href="categories.php" class="cards-info img-size drinks">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Bebidas</h2>
@@ -231,7 +231,7 @@
     <footer class="footer">
         <div class="footer-layout">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img class="logo-footer" src="./img/graphic-identifier.png" alt="graphic-identifier">
                 </a>
             </div>

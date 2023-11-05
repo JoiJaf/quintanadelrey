@@ -26,7 +26,7 @@
 
         <div class="header-red-bar">
             <div class="header-ctn">
-                <a class="logo" href="index.html">
+                <a class="logo" href="index.php">
                     <img src="./img/graphic-identifier.png" alt="graphic-identifier">
                 </a>
 
@@ -40,15 +40,15 @@
                 <!-- mobile nav btn -->
 
                 <nav class="navigation">
-                    <a class="navigation-link" href="index.html">Home</a>
-                    <a class="navigation-link" href="categories.html">Product</a>
+                    <a class="navigation-link" href="index.php">Home</a>
+                    <a class="navigation-link" href="categories.php">Product</a>
                     <a class="navigation-link" href="">Restaurant</a>
                     <a class="navigation-link" href="">Contact</a>
 
-                    <a class=" login" href="">
+                    <a class=" login" href="register.php">
                         <img class="logo-user" src="./img/user.png" alt="user-logo">
                     </a>
-                    <a class="login" href="">Login</a>
+                    <a class="login" href="register.php">Login</a>
                 </nav>
             </div>
         </div>
@@ -175,7 +175,7 @@
                 <div class="carousel">
                     <div class="ctn-carrousel-dish">
                         <h3 class="carousels-information-title no-margin">baked rice</h3>
-                        <a href="platillo.html" class="image-mask">
+                        <a href="platillo.php" class="image-mask">
                             <img class="carousels-image" src="./img/arroz al horno.png" alt="dish">
                         </a>
                     </div>
@@ -185,7 +185,7 @@
                 <div class="carousel">
                     <div class="ctn-carrousel-dish">
                         <h3 class="carousels-information-title no-margin"> paella</h3>
-                        <a href="platillo.html" class="image-mask">
+                        <a href="platillo.php" class="image-mask">
                             <img class="carousels-image" src="./img/paella.jpg" alt="dish">
                         </a>
                     </div>
@@ -194,7 +194,7 @@
                 <div class="carousel">
                     <div class="ctn-carrousel-dish">
                         <h3 class="carousels-information-title no-margin"> pantineta</h3>
-                        <a href="platillo.html" class="image-mask">
+                        <a href="platillo.php" class="image-mask">
                             <img class="carousels-image" src="./img/pant-postre.jpg" alt="dish">
                         </a>
                     </div>
@@ -217,7 +217,7 @@
     <footer class="footer">
         <div class="footer-layout">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img class="logo-footer" src="./img/graphic-identifier.png" alt="graphic-identifier">
                 </a>
             </div>

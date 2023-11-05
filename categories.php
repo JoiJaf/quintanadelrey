@@ -26,7 +26,7 @@
 
         <div class="header-red-bar">
             <div class="header-ctn">
-                <a class="logo" href="index.html">
+                <a class="logo" href="index.php">
                     <img src="./img/graphic-identifier.png" alt="graphic-identifier">
                 </a>
 
@@ -40,15 +40,15 @@
                 <!-- mobile nav btn -->
 
                 <nav class="navigation">
-                    <a class="navigation-link" href="index.html">Home</a>
-                    <a class="navigation-link" href="categories.html">Product</a>
+                    <a class="navigation-link" href="index.php">Home</a>
+                    <a class="navigation-link" href="categories.php">Product</a>
                     <a class="navigation-link" href="#">Restaurant</a>
                     <a class="navigation-link" href="#">Contact</a>
 
-                    <a class="login" href="#">
+                    <a class="login" href="register.php">
                         <img class="logo-user" src="./img/user.png" alt="user-logo">
                     </a>
-                    <a class="login" href="#">Login</a>
+                    <a class="login" href="register.php">Login</a>
                 </nav>
             </div>
         </div>
@@ -159,7 +159,7 @@
             <div class="cards-container">
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -179,7 +179,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -189,7 +189,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -199,7 +199,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -209,7 +209,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -219,7 +219,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -229,7 +229,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -239,7 +239,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -249,7 +249,7 @@
                 </div>
 
                 <div class="cards-ctn">
-                    <a href="platillo.html" class="cards-info main-course cards-ctn ">
+                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
                             <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
@@ -272,7 +272,7 @@
     <footer class="footer">
         <div class="footer-layout">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img class="logo-footer" src="./img/graphic-identifier.png" alt="graphic-identifier">
                 </a>
             </div>
