@@ -306,5 +306,12 @@
     transition: 500ms;
 }
 
-
+.createAcountbtn{
+    background-color: var(--secondary_color);
+    border-radius: 5rem;
+    padding: 0.8rem 0rem;
+    font-size: var(--font-size-lg);
+    border: none;
+    font-family: var(--font_roboto);
+}
 

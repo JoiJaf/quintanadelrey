@@ -1,3 +1,25 @@
+<?php
+require_once 'database.php';
+
+if($_POST){
+    var_dump($_POST);
+    $database->insert("tb_usuarios",[
+        "nombre"=> $_POST["firstName"],
+        "apellido"=> $_POST["lastName"],
+        "cedula"=> $_POST["id"],
+        "telefono"=> $_POST["phone"],
+        "correo"=> $_POST["email"],
+        "fecha_nacimiento"=> $_POST["birthday"],
+        "nombre_usuario"=> $_POST["user"],
+        "contrasena"=> $_POST["password"]
+    ]);
+}
+
+if($_GET){
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +85,7 @@
                 <h2 class="login-title">log in</h2>
                 <img class="login-shield" src="./img/escudo.png" alt="">
                 <div class="login-form-ctn">
-                    <form class="form-ctn" action="">
+                    <form class="form-ctn" method="get" action="index.php">
                         <div class="form-inputs">
                             <img src="./img/min-login.png" alt="">
                             <input class="fr-input_log" type="text">
@@ -109,12 +131,12 @@
                 <h2 class="login-title">create Account</h2>
                 <img class="login-shield" src="./img/escudo.png" alt="">
                 <div class="login-form-ctn">
-                    <form class="form-ctn" action="">
+                    <form class="form-ctn"  method="post" action="response.php">
 
                         <div class="register">
                             <div class="register-align">
                             <p class="register-text">Nombre: </p>
-                            <input class="fr-input_log" type="text" class=""></input>
+                            <input name="firstName" class="fr-input_log" type="text" class=""></input>
                             </div>
                             
                             <hr class="register-bar">
@@ -123,7 +145,7 @@
                         <div class="register">
                             <div class="register-align">
                             <p class="register-text">Apellidos: </p>
-                            <input class="fr-input_log" type="text" class=""></input>
+                            <input name="lastName" class="fr-input_log" type="text" class=""></input>
                             </div>
                             
                             <hr class="register-bar">
@@ -132,7 +154,25 @@
                         <div class="register">
                             <div class="register-align">
                             <p class="register-text">Identificacion: </p>
-                            <input class="fr-input_log" type="text" class=""></input>
+                            <input name="id" class="fr-input_log" type="text" class=""></input>
+                            </div>
+                            
+                            <hr class="register-bar">
+                        </div>
+
+                        <div class="register">
+                            <div class="register-align">
+                            <p class="register-text">Usuario: </p>
+                            <input name="user" class="fr-input_log" type="text" class=""></input>
+                            </div>
+                            
+                            <hr class="register-bar">
+                        </div>
+
+                        <div class="register">
+                            <div class="register-align">
+                            <p class="register-text">Contraseña: </p>
+                            <input name="password" class="fr-input_log" type="password" class=""></input>
                             </div>
                             
                             <hr class="register-bar">
@@ -141,7 +181,7 @@
                         <div class="register">
                             <div class="register-align">
                             <p class="register-text">Teléfono: </p>
-                            <input class="fr-input_log" type="text" class=""></input>
+                            <input name="phone" class="fr-input_log" type="text" class=""></input>
                             </div>
                             
                             <hr class="register-bar">
@@ -150,7 +190,7 @@
                         <div class="register">
                             <div class="register-align">
                             <p class="register-text">Correo: </p>
-                            <input class="fr-input_log" type="text" class=""></input>
+                            <input name="email" class="fr-input_log" type="text" class=""></input>
                             </div>
                             
                             <hr class="register-bar">
@@ -159,19 +199,15 @@
                         <div class="register">
                             <div class="register-align">
                             <p class="register-text">Fecha de nacimiento: </p>
-                            <input class="fr-input_log" type="date" class=""></input>
+                            <input name="birthday" class="fr-input_log" type="date" class=""></input>
                             </div>
                             
                             <hr class="register-bar">
                         </div>
 
+                        <input class="createAcountbtn" type="submit" value="Crear Cuenta">
+
                     </form>
-
-
-                    <a href="index.php">
-                        <img src="./img/createAcount.png" alt="">
-                    </a>
-
 
             </section>
 
