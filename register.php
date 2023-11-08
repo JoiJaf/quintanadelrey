@@ -3,6 +3,7 @@ require_once 'database.php';
 
 if($_POST){
     var_dump($_POST);
+    $pass = password_hash($_POST["password"], PASSWORD_DEFAULT, ['cost' => 12]);//revisar
     $database->insert("tb_usuarios",[
         "nombre"=> $_POST["firstName"],
         "apellido"=> $_POST["lastName"],
@@ -11,7 +12,7 @@ if($_POST){
         "correo"=> $_POST["email"],
         "fecha_nacimiento"=> $_POST["birthday"],
         "nombre_usuario"=> $_POST["user"],
-        "contrasena"=> $_POST["password"]
+        "contrasena"=> $pass
     ]);
 }
 
