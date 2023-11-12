@@ -34,7 +34,7 @@ foreach($products as $product){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add product</title>
+    <title>Products List</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -51,7 +51,7 @@ foreach($products as $product){
             foreach($maindishes as $maindishe){
                 echo "<tr>";
                 echo "<td>".$maindishe["platillo_nombre"]."</td>";
-                echo "<td><a class='a-admin' href='#'>Edit</a> <a class='a-admin href='#'>Delete</a></td>";
+                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$maindishe["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$maindishe["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
@@ -67,7 +67,7 @@ foreach($products as $product){
             foreach($appetizers as $appetizer){
                 echo "<tr>";
                 echo "<td>".$appetizer["platillo_nombre"]."</td>";
-                echo "<td><a class='a-admin' href='#'>Edit</a> <a class='a-admin href='#'>Delete</a></td>";
+                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$appetizer["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$appetizer["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
@@ -81,7 +81,7 @@ foreach($products as $product){
             foreach($drinks as $drink){
                 echo "<tr>";
                 echo "<td>".$drink["platillo_nombre"]."</td>";
-                echo "<td><a class='a-admin' href='#'>Edit</a> <a class='a-admin href='#'>Delete</a></td>";
+                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$drink["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$drink["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
@@ -95,7 +95,7 @@ foreach($products as $product){
             foreach($desserts as $dessert){
                 echo "<tr>";
                 echo "<td>".$dessert["platillo_nombre"]."</td>";
-                echo "<td><a class='a-admin' href='#'>Edit</a> <a class='a-admin href='#'>Delete</a></td>";
+                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$dessert["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$dessert["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>

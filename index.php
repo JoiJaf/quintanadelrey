@@ -169,28 +169,28 @@
 
             <div class="cards-container">
 
-                <a href="categories.php" class="cards-info img-size appetizers ">
+                <a href="categories.php?id=1" class="cards-info img-size appetizers ">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Entradas</h2>
                     </div>
                 </a>
 
-                <a href="categories.php" class="cards-info img-size main-course">
+                <a href="categories.php?id=2" class="cards-info img-size main-course">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Plato Fuerte</h2>
                     </div>
                 </a>
 
-                <a href="categories.php" class="cards-info img-size desserts">
+                <a href="categories.php?id=3" class="cards-info img-size desserts">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Postres</h2>
                     </div>
                 </a>
 
-                <a href="categories.php" class="cards-info img-size drinks">
+                <a href="categories.php?id=4" class="cards-info img-size drinks">
 
                     <div class="cards-title-container">
                         <h2 class="cards-title">Bebidas</h2>

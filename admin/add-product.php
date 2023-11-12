@@ -6,8 +6,14 @@ $categories=$database->select("tb_categorias","*");
 $cantpaxs=$database->select("tb_cant_personas","*");
 
 $message="";
+
+
     
     if($_POST){
+       
+
+        var_dump(isset($_FILES["platillo_img"]));
+
         if(isset($_FILES["platillo_img"])){
             $errors=[];
             $file_name=$_FILES["platillo_img"]["name"];
@@ -18,10 +24,12 @@ $message="";
 
             $file_ext=end($file_ext_arr);
             $img_ext=["jpeg", "png", "jpg", "webp"];
+            
 
             if(!in_array($file_ext,$img_ext)){
                 $errors[]="File type is not supported";
                 $message="File type is not supported";
+                var_dump("error encontrado");
             }
 
             if(empty($errors)){
@@ -30,22 +38,25 @@ $message="";
                 $filename = str_replace(',', '', $filename);
                 $filename = str_replace('.', '', $filename);
                 $filename = str_replace(' ', '-', $filename);
-                $img=$_POST["platillo_catego"]."-".$filename.".".$file_ext;
+                $img=$_POST["categ_nombre"]."-".$filename.".".$file_ext;
                 move_uploaded_file( $file_tmp, "../img/".$img);
+                
 
-            $database->insert("tb_info_platillo",[
-             "platillo_nombre"=>$_POST["platillo_nombre"],
-             "platillo_img"=>$img,
-             "platillo_catego"=>$_POST["platillo_catego"],
-             "platillo_descrip"=>$_POST["platillo_descrip"],
-             "platillo_precio"=>$_POST["platillo_precio"],
-             "platillo_cant_per_porci"=>$_POST["platillo_cant_per_porci"],
-             "destacado"=>$_POST["destacado"]
-            ]);
+             $database->insert("tb_info_platillo",[
+               "platillo_nombre"=>$_POST["platillo_nombre"],
+               "platillo_img"=>$img,
+               "platillo_catego"=>$_POST["categ_nombre"],
+               "platillo_descrip"=>$_POST["platillo_descrip"],
+               "platillo_precio"=>$_POST["platillo_precio"],
+               "platillo_cant_per_porci"=>$_POST["cant_pers"],
+               "destacado"=>$_POST["valor"]
+              ]);
             }
         }
         
     }
+
+    
 
 ?>
 
@@ -61,11 +72,14 @@ $message="";
         href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;700&family=Marcellus&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin-main.css">
 </head>
 <body>
 <h2>New product</h2>
-    
-    <form action="#" method="post">
+    <?php
+    echo $message;
+    ?>
+    <form action="add-product.php" method="post" enctype="multipart/form-data">
     <div>
         <label for="platillo_nombre">Name:</label>
         <input id="platillo_nombre" name="platillo_nombre" type="text">
@@ -77,24 +91,24 @@ $message="";
     </div>
 
     <div>
-        <label for="platillo_catego">Category:</label>
-        <select name="platillo_catego" id="platillo_catego">
+        <label for="categ_nombre">Category:</label>
+        <select name="categ_nombre" id="categ_nombre">
             <?php 
                 foreach($categories as $category){
 
-                        echo"<option value='".$category["id_categorias"]."'>".$category["categ_nombre"]."</option>";
+                        echo"<option value='".$category["categ_nombre"]."'>".$category["categ_nombre"]."</option>";
                 }
             ?>
         </select>
     </div>
 
     <div>
-        <label for="cant_pers_descrip">Portions:</label>
-        <select name="cant_pers_descrip" id="cant_pers_descrip">
+        <label for="cant_pers">Portions:</label>
+        <select name="cant_pers" id="cant_pers">
             <?php 
                 foreach($cantpaxs as $cantpax){
 
-                    echo"<option value='".$cantpax["id_categorias"]."'>".$cantpax["cant_pers_descrip"]."</option>";
+                    echo"<option value='".$cantpax["id_cant_pers"]."'>".$cantpax["cant_pers"]."</option>";
                 }
             ?>
         </select>
@@ -102,16 +116,17 @@ $message="";
 
     <div>
         <label for="platillo_precio">Price: €</label>
-        <input id="platillo_precio" name="platillo_precio" type="text">
+        <input id="platillo_precio" name="platillo_precio" type="text" >
     </div>
     <div>
         <label for="destacado">Outstanding:</label>
-        <input id="destacado" name="platillo_precio" type="checkbox" value=1>
+        <input id="destacado" name="destacado" type="checkbox" onclick="toggleValue()">
+        <input type="hidden" id="valor" name="valor" value="0">
     </div>
 
-    <div>
+            <div>
                 <label for="platillo_img">Image</label>
-                <img id="preview" src="./imgs/<?php echo $items[0]["platillo_img"]?>" alt="Preview">
+                <img class="div-image" id="preview" src="../img/escudo.png" alt="Preview">
                 <input id="platillo_img" type="file" name="platillo_img" onchange="readURL(this)">
             </div>
 
@@ -123,12 +138,26 @@ $message="";
     <script>
         function readURL(input) {
             if(input.files && input.files[0]){
+                
                 let reader = new FileReader();
 
                 reader.onload = function(e) {
                     let preview = document.getElementById('preview').setAttribute('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function toggleValue() {
+            var checkbox = document.getElementById("destacado");
+            var valueField = document.getElementById("valor");
+
+            if (checkbox.checked) {
+                // Si el checkbox está marcado, establece el valor a 1
+                valueField.value = 1;
+            } else {
+                // Si el checkbox no está marcado, establece el valor a 0
+                valueField.value = 0;
             }
         }
         
