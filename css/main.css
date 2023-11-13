@@ -25,6 +25,17 @@
 /* pages */
 @import url(./pages/home.css);
 
+/* add product php */
+.add-product-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.a-admin{
+    color: blue;
+    text-decoration: underline;
+}
+
 
 /* Galaxy Tab A10.1" (2019)*/
 @media(max-width:1200px) {
@@ -193,6 +204,8 @@
     }
 
     /* footer */
+
+
 
 
 

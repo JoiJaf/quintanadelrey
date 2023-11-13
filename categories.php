@@ -1,3 +1,36 @@
+<?php
+require_once 'database.php';
+$categories="";
+$description="";
+$drinks=$database->select("tb_info_platillo","*",["platillo_catego"=>"Drinks"]);
+$maindishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Main dishes"]);
+$appetizers=$database->select("tb_info_platillo","*",["platillo_catego"=>"Appetizers"]);
+$desserts=$database->select("tb_info_platillo","*",["platillo_catego"=>"Desserts"]);
+
+
+if($_GET){
+    
+    switch ($_GET["id"]) {
+        case 1:
+            $categories="Appetizers";
+            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Appetizers"]);
+            break;
+        case 2:
+            $categories="Main dishes";
+            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Main dishes"]);
+            break;
+        case 3:
+            $categories="Desserts";
+            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Desserts"]);
+            break;
+        case 4:
+            $categories="Drinks";
+            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Drinks"]);
+            break;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +90,12 @@
             <div class="mask-c align">
 
 
-                <h1 class="bnr-title ">
-                    Main Courses
+                <h1 class="bnr-title "><?php echo $categories?>
+                
                 </h1>
 
                 <h4 class="bnr-text align-bnr-text ">
-                    page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here,
+                <?php echo $description[0]?>
                 </h4>
 
             </div>
@@ -79,22 +111,23 @@
                 <h3> Categories</h3>
             </div>
             <div class="categories-container">
-                <a class="each-category">
+
+                <a class="each-category" href="categories.php?id=1">
                     <img class="categories-image" src="./img/entrada.jpg" alt="Entradas">
                     <h4 class="text-set">Appetizers</h4>
                 </a>
 
-                <a class="each-category">
+                <a class="each-category" href="categories.php?id=2">
                     <img class="categories-image" src="./img/plato_fuerte.jpg" alt="PlatoFuerte">
                     <h4 class="text-set">Main course</h4>
                 </a>
 
-                <a class="each-category">
+                <a class="each-category" href="categories.php?id=3">
                     <img class="categories-image" src="./img/Postres.png" alt="Postres">
                     <h4 class="text-set">Desserts</h4>
                 </a>
 
-                <a class="each-category">
+                <a class="each-category" href="categories.php?id=4">
                     <img class="categories-image" src="./img/bebidas.jpg" alt="bebidas">
                     <h4 class="text-set">Drinks</h4>
                 </a>
