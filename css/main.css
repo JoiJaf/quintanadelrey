@@ -15,6 +15,7 @@
 @import url(./layout/location.css);
 @import url(./layout/filters.css);
 @import url(./layout/register.css);
+@import url(./layout/acount.css);
 
 /* components */
 @import url(./components/components.css);

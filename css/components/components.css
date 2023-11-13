@@ -1,10 +1,9 @@
-
-.logo{
+.logo {
     align-items: center;
     margin: 1rem 0;
 }
 
-.login{
+.login {
     display: flex;
     width: 1rem;
     font-family: var(--font_roboto);
@@ -12,78 +11,80 @@
     font-weight: 400;
 }
 
-.login:hover{
+.login:hover {
     transform: scale(1.1);
     transition: 330ms;
     transform-origin: center;
 }
 
-.logo-user{
- width: 1.5rem;
- height: 1.2rem;
- margin-left: 0;
- padding-left: 1rem;
+.logo-user {
+    width: 2.5rem;
+    height: 1.4rem;
+    margin-left: 0;
+    padding-left: 1rem;
 }
 
-.mask{
+.mask {
     position: absolute;
     background-color: rgb(0 0 0 / 0.64);
     width: 100%;
     height: 100%;
 }
 
+
+
 /* cosas del main */
 
 /* Promos */
 
-.promos-container{
+.promos-container {
     margin: 4rem 9rem 3rem 9rem;
     overflow: hidden;
 }
 
-.promos-title{
+.promos-title {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font_roboto);
     font-size: var(--font-size-lg);
-    margin-bottom:2.188rem;
+    margin-bottom: 2.188rem;
 }
 
-.promos{
+.promos {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     width: 300%;
 }
 
-.ctn-img{
+.ctn-img {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     column-gap: 4rem;
     padding-left: 1rem;
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s ease;
 }
 
-.promos-images:hover{
+.promos-images:hover {
     transform: scale(.960);
     transition: 500ms;
     border-radius: 1rem;
 }
 
-.promos-images{
+.promos-images {
     width: 30.875rem;
     height: 25rem;
 }
 
-.promos-points{
+.promos-points {
     padding: 2rem;
     display: flex;
     justify-content: center;
 }
 
-.point{
+.point {
     width: 2rem;
     height: 2rem;
     background: rgb(124, 124, 125);
@@ -92,12 +93,12 @@
     margin: 1rem;
 }
 
-.point:hover{
+.point:hover {
     transform: scale(.9);
     transition: 400ms;
 }
 
-.point--active{
+.point--active {
     background-color: rgb(164, 29, 29);
 }
 
@@ -107,7 +108,7 @@
 
 
 
-.text-end{
+.text-end {
     font-family: var(--font_marcellus);
     font-size: var(--font-size-sm);
     text-align: center;
@@ -115,19 +116,19 @@
     margin: 3rem 0 0 0;
 }
 
-.ctn-form{
+.ctn-form {
     padding-left: 2rem;
 }
 
-.subtitle{
-    font-family: var(--font_roboto) ;
-    font-size: var(--font-size-md) ;
+.subtitle {
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-md);
     font-weight: 700;
-    
-    
+
+
 }
 
-.form{
+.form {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0.125rem solid var(--secondary_color);
@@ -140,7 +141,7 @@
     justify-content: space-between;
 }
 
-.placeholder{
+.placeholder {
     background: var(--footer_color);
     border-style: none;
     outline: none;
@@ -149,15 +150,15 @@
     font-size: var(--font-size-sm);
 }
 
-.placeholder::placeholder{
+.placeholder::placeholder {
     color: var(--white);
     font-family: var(--font_marcellus);
     font-size: var(--font-size-sm);
     font-weight: lighter;
 }
 
-.submit{
-    background: url(../../img/send.png)  ;
+.submit {
+    background: url(../../img/send.png);
     border: none;
     background-repeat: no-repeat;
     border-radius: 1.2rem;
@@ -167,7 +168,7 @@
     cursor: pointer;
 }
 
-.submit:hover{
+.submit:hover {
     transform: scale(.950);
     transition: 400ms;
 }
@@ -176,7 +177,7 @@
 
 /* categories html */
 
-.categories-container{
+.categories-container {
     display: flex;
     justify-content: space-between;
     margin: 4rem 9rem;
@@ -184,14 +185,14 @@
     font-size: var(--font-size-md);
 }
 
-.each-category:hover{
+.each-category:hover {
     transform: scale(1.1);
     transition: 350ms;
     color: var(--black);
     cursor: pointer;
 }
 
-.categorie-mask-Appetizers{
+.categorie-mask-Appetizers {
     border-radius: 50%;
     overflow: hidden;
     width: 14.188rem;
@@ -199,18 +200,18 @@
     background: #000;
 }
 
-.categories-image{
+.categories-image {
     width: 16rem;
     height: 16rem;
     border-radius: 50%;
 }
 
-.text-set{
+.text-set {
     font-weight: normal;
     text-align: center;
     font-weight: 500;
     padding-top: .6rem;
-    
+
 }
 
 
@@ -218,24 +219,24 @@
 
 /* platillos html */
 
-.dish{
+.dish {
     margin: 3rem 9rem;
 }
 
-.dish-information{
-    display: flex; 
+.dish-information {
+    display: flex;
     justify-content: space-between;
 }
 
-.dish-title{
+.dish-title {
     margin: 0 auto;
     font-family: var(--font_titles);
     font-size: var(--font-size-xxl);
-    font-weight: bold; 
-  
+    font-weight: bold;
+
 }
 
-.dish-subtitle{
+.dish-subtitle {
     font-family: var(--font_roboto);
     font-size: var(--font-size-xl);
     font-weight: bold;
@@ -243,19 +244,19 @@
     margin-bottom: 1rem;
 }
 
-.dish-text{
+.dish-text {
     font-family: var(--font_marcellus);
     font-size: var(--font-size-md);
     width: 60rem;
 }
 
-.dish-price{
+.dish-price {
     font-family: var(--font_roboto);
     font-size: var(--font-size-xl);
-    font-weight: bold; 
+    font-weight: bold;
 }
 
-.ctn-btn-add{
+.ctn-btn-add {
     background: var(--footer_color);
     width: 100%;
     margin: auto;
@@ -265,7 +266,7 @@
     justify-content: center;
 }
 
-.btn-add{
+.btn-add {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -285,12 +286,12 @@
     height: 5rem;
 }
 
-.btn-add:hover{
+.btn-add:hover {
     transform: scale(.940);
     transition: 700ms;
 }
 
-.circle{
+.circle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,12 +302,12 @@
 
 }
 
-.dish-img:hover{
+.dish-img:hover {
     transform: rotate(214deg);
     transition: 500ms;
 }
 
-.createAcountbtn{
+.createAcountbtn {
     background-color: var(--secondary_color);
     border-radius: 5rem;
     padding: 0.8rem 0rem;
@@ -314,4 +315,3 @@
     border: none;
     font-family: var(--font_roboto);
 }
-

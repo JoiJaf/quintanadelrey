@@ -5,6 +5,7 @@
     --footer_color: hsla(0, 0%, 8%, 1);
     --white: hsla(0, 0%, 100%, 1);
     --black: hsla(0, 0%, 0%, 1);
+    --gray: rgb(219, 219, 219);
 
     --font_titles: 'Cabin', sans-serif;
     --font_roboto: 'Roboto', sans-serif;
