@@ -72,6 +72,9 @@ foreach ($get->find('.card--no-image') as $gets) {
             $descriptions[] = $description[0]->plaintext;
 
             $filename = strtolower(trim($name[0]->plaintext));
+            $filename = str_replace(')', ' ', $filename);
+            $filename = str_replace('(', ' ', $filename);
+            $filename = str_replace('\'', ' ', $filename); //revisar esto en caso de no funcionar xD
             $filename = str_replace(' ', '-', $filename);
             $filenames[] = $filename;
 

@@ -36,6 +36,13 @@
     text-decoration: underline;
 }
 
+.prueba-cards{
+    overflow: hidden;
+    height: 20rem;
+    width: 100%;
+    border-radius: 4rem;
+}
+
 
 /* Galaxy Tab A10.1" (2019)*/
 @media(max-width:1200px) {

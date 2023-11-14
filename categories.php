@@ -14,18 +14,26 @@ if($_GET){
         case 1:
             $categories="Appetizers";
             $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Appetizers"]);
+            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Appetizers"]);
+            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Appetizers"]);
             break;
         case 2:
             $categories="Main dishes";
             $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Main dishes"]);
+            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Main dishes"]);
+            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Main dish"]);
             break;
         case 3:
             $categories="Desserts";
             $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Desserts"]);
+            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Desserts"]);
+            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Desserts"]);
             break;
         case 4:
             $categories="Drinks";
             $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Drinks"]);
+            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Drinks"]);
+            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Drinks"]);
             break;
     }
 }
@@ -86,7 +94,7 @@ if($_GET){
             </div>
         </div>
 
-        <div class="banner-platoFuerte">
+        <div class="banner-platoFuerte" style="background: url('./img/<?php echo $banner[0]?>');">
             <div class="mask-c align">
 
 
@@ -191,7 +199,23 @@ if($_GET){
 
             <div class="cards-container">
 
-                <div class="cards-ctn">
+            <?php
+
+            foreach($dishes as $dish){
+
+               echo "<div class='cards-ctn'>";
+               echo "<a href='platillo.php' class='cards-info main-course cards-ctn ' style='background: url(./img/".$dish["platillo_img"].")'>";     
+               echo "<div class='opacity'>";         
+               echo "<h2 class='cards-title /*cards-title-mod*/'>".$dish["platillo_nombre"]."</h2>";
+               echo "<p class='card-text'>".$dish["platillo_descrip"]."</p>";
+                echo "</div>";
+                echo "</a>";
+                echo "</div>";
+            }
+            
+            ?>
+
+                <!--<div class="cards-ctn">
                     <a href="platillo.php" class="cards-info main-course cards-ctn ">
                         <div class="opacity">
                             <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
@@ -199,101 +223,7 @@ if($_GET){
                                 impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
                         </div>
                     </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cards-ctn">
-                    <a href="platillo.php" class="cards-info main-course cards-ctn ">
-                        <div class="opacity">
-                            <h2 class="cards-title /*cards-title-mod*/">Entradas</h2>
-                            <p class="card-text">Nisi ratione nemo eligendi excepturi ipsa, aut at error, sit aliquid
-                                impedit omnis. Totam delectus, ipsa earum cupiditate eligendi harum molestias iusto.</p>
-                        </div>
-                    </a>
-                </div>
-
-
-
-
+                </div>-->
 
             </div>
         </section>
