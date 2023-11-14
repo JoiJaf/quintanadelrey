@@ -36,6 +36,10 @@ foreach ($get->find('.card--no-image') as $gets) {
             $descriptions[] = $description[0]->plaintext;
 
             $filename = strtolower(trim($name[0]->plaintext));
+            $filename = str_replace(')', ' ', $filename);
+            $filename = str_replace('(', ' ', $filename);
+            $filename = str_replace('#', ' ', $filename);
+            $filename = str_replace(';', ' ', $filename);
             $filename = str_replace(' ', '-', $filename);
             $filenames[] = $filename;
 
@@ -44,26 +48,26 @@ foreach ($get->find('.card--no-image') as $gets) {
     
 }
 
-//  foreach ($filenames as $index => $image) {
-//      file_put_contents("../img/appetizers-" .$image. ".jpg", file_get_contents($images[$index]));
-//  }
+//   foreach ($filenames as $index => $image) {
+//       file_put_contents("../img/appetizers-" .$image. ".jpg", file_get_contents($images[$index]));
+//   }
 
 
- for($i=0; $i<16; $i++){
-     $database->insert("tb_info_platillo", [
-         "platillo_nombre" => $names[$i],
-         "platillo_img" =>  "appetizers-".$filenames[$i].".jpg",
-         "platillo_catego" =>  "Appetizers",
-         "platillo_descrip" => $descriptions[$i],
-         "platillo_precio" => rand(1*10, 70*10)/10,
-         "platillo_cant_per_porci" => rand(1, 4),
-         "destacado" => rand(0, 1)
-     ]);
- } 
+  for($i=0; $i<16; $i++){
+      $database->insert("tb_info_platillo", [
+          "platillo_nombre" => $names[$i],
+          "platillo_img" =>  "appetizers-".$filenames[$i].".jpg",
+          "platillo_catego" =>  "Appetizers",
+          "platillo_descrip" => $descriptions[$i],
+          "platillo_precio" => rand(1*10, 70*10)/10,
+          "platillo_cant_per_porci" => rand(1, 4),
+          "destacado" => rand(0, 1)
+      ]);
+  } 
 
- //  $database->insert("tb_categorias", [
-//     "categ_descrip" => "From Spanish omelets to olives, find easy and delicious Spanish tapas recipes. These appetizers are great as a starter—or serve several dishes to make a full meal!",
-//     "categ_nombre" =>  "Appetizers"
-// ]);
+  $database->insert("tb_categorias", [
+     "categ_descrip" => "From Spanish omelets to olives, find easy and delicious Spanish tapas recipes. These appetizers are great as a starter—or serve several dishes to make a full meal!",
+     "categ_nombre" =>  "Appetizers"
+ ]);
 
 ?>
