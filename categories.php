@@ -1,39 +1,39 @@
 <?php
 require_once 'database.php';
-$categories="";
-$description="";
-$drinks=$database->select("tb_info_platillo","*",["platillo_catego"=>"Drinks"]);
-$maindishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Main dishes"]);
-$appetizers=$database->select("tb_info_platillo","*",["platillo_catego"=>"Appetizers"]);
-$desserts=$database->select("tb_info_platillo","*",["platillo_catego"=>"Desserts"]);
+$categories = "";
+$description = "";
+$drinks = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Drinks"]);
+$maindishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Main dishes"]);
+$appetizers = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Appetizers"]);
+$desserts = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Desserts"]);
 
 
-if($_GET){
-    
+if ($_GET) {
+
     switch ($_GET["id"]) {
         case 1:
-            $categories="Appetizers";
-            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Appetizers"]);
-            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Appetizers"]);
-            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Appetizers"]);
+            $categories = "Appetizers";
+            $description = $database->select("tb_categorias", "categ_descrip", ["categ_nombre" => "Appetizers"]);
+            $banner = $database->select("tb_categorias", "categ_img", ["categ_nombre" => "Appetizers"]);
+            $dishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Appetizers"]);
             break;
         case 2:
-            $categories="Main dishes";
-            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Main dishes"]);
-            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Main dishes"]);
-            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Main dish"]);
+            $categories = "Main dishes";
+            $description = $database->select("tb_categorias", "categ_descrip", ["categ_nombre" => "Main dishes"]);
+            $banner = $database->select("tb_categorias", "categ_img", ["categ_nombre" => "Main dishes"]);
+            $dishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Main dish"]);
             break;
         case 3:
-            $categories="Desserts";
-            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Desserts"]);
-            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Desserts"]);
-            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Desserts"]);
+            $categories = "Desserts";
+            $description = $database->select("tb_categorias", "categ_descrip", ["categ_nombre" => "Desserts"]);
+            $banner = $database->select("tb_categorias", "categ_img", ["categ_nombre" => "Desserts"]);
+            $dishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Desserts"]);
             break;
         case 4:
-            $categories="Drinks";
-            $description=$database->select("tb_categorias","categ_descrip",["categ_nombre"=>"Drinks"]);
-            $banner=$database->select("tb_categorias","categ_img",["categ_nombre"=>"Drinks"]);
-            $dishes=$database->select("tb_info_platillo","*",["platillo_catego"=>"Drinks"]);
+            $categories = "Drinks";
+            $description = $database->select("tb_categorias", "categ_descrip", ["categ_nombre" => "Drinks"]);
+            $banner = $database->select("tb_categorias", "categ_img", ["categ_nombre" => "Drinks"]);
+            $dishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Drinks"]);
             break;
     }
 }
@@ -65,45 +65,21 @@ if($_GET){
 
     <header class="header">
 
-        <div class="header-red-bar">
-            <div class="header-ctn">
-                <a class="logo" href="index.php">
-                    <img src="./img/graphic-identifier.png" alt="graphic-identifier">
-                </a>
+        <?php
+        include("./parts/headerNav.php");
+        ?>
 
-                <!-- mobile nav btn -->
-
-                <input class="mobile-check" type="checkbox">
-                <label class="mobile-btn">
-                    <span></span>
-                </label>
-
-                <!-- mobile nav btn -->
-
-                <nav class="navigation">
-                    <a class="navigation-link" href="index.php">Home</a>
-                    <a class="navigation-link" href="categories.php">Product</a>
-                    <a class="navigation-link" href="#">Restaurant</a>
-                    <a class="navigation-link" href="#">Contact</a>
-
-                    <a class="login" href="register.php">
-                        <img class="logo-user" src="./img/user.png" alt="user-logo">
-                    </a>
-                    <a class="login" href="register.php">Login</a>
-                </nav>
-            </div>
-        </div>
-
-        <div class="banner-platoFuerte" style="background: url('./img/<?php echo $banner[0]?>');">
+        <div class="banner-platoFuerte" style="background: url('./img/<?php echo $banner[0] ?>');">
             <div class="mask-c align">
 
 
-                <h1 class="bnr-title "><?php echo $categories?>
-                
+                <h1 class="bnr-title ">
+                    <?php echo $categories ?>
+
                 </h1>
 
                 <h4 class="bnr-text align-bnr-text ">
-                <?php echo $description[0]?>
+                    <?php echo $description[0] ?>
                 </h4>
 
             </div>
@@ -199,9 +175,9 @@ if($_GET){
 
             <div class="cards-container">
 
-            <?php
+                <?php
 
-            foreach($dishes as $dish){
+                foreach ($dishes as $dish) {
 
                echo "<div class='cards-ctn'>";
                echo "<a href='platillo.php?id=".$dish["id_platillo"]."' class='cards-info main-course cards-ctn ' style='background: url(./img/".$dish["platillo_img"].")'>";     
@@ -232,84 +208,9 @@ if($_GET){
 
     </main>
 
-    <footer class="footer">
-        <div class="footer-layout">
-            <div class="logo">
-                <a href="index.php">
-                    <img class="logo-footer" src="./img/graphic-identifier.png" alt="graphic-identifier">
-                </a>
-            </div>
-
-            <div class="links">
-                <h2 class="footer-title">
-                    about us
-                </h2>
-                <ul class="footer-links">
-                    <a href="">
-                        <li>Reservation rules and policies</li>
-                    </a>
-                    <a href="">
-                        <li>Accessibility</li>
-                    </a>
-                    <a href="">
-                        <li>Address</li>
-                    </a>
-                    <a href="">
-                        <li>Account</li>
-                    </a>
-                    <a href="">
-                        <li>Contact Us</li>
-                    </a>
-                    <a href="">
-                        <li>Help</li>
-                    </a>
-                    <a href="">
-                        <li>Download our mobile app</li>
-                    </a>
-                </ul>
-                <div class="download-app">
-                    <a href="https://www.apple.com/la/app-store/">
-                        <img src="./img/app-store.png" alt="app-store">
-                    </a>
-                    <a href="https://play.google.com/store/">
-                        <img src="./img/google-play.png" alt="google-play">
-                    </a>
-                </div>
-            </div>
-
-            <div class="ctn-form">
-
-                <h4 class="subtitle">write to us</h4>
-                <form class="form">
-                    <input class="placeholder" type="text" placeholder="Email Address">
-                    <input class="submit" type="submit" value="">
-                </form>
-
-                <h4 class="subtitle">
-                    Search us in:
-                </h4>
-
-                <div class="footer-network">
-                    <a href="https://www.facebook.com/?locale=es_LA"><img src="./img/facebook-link.png"
-                            alt="facebook"></a>
-                    <a href="https://www.instagram.com/"><img src="./img/instagram-link.png" alt="instagram"></a>
-                    <a href="https://www.whatsapp.com/?lang=es_LA"><img src="./img/whatsApp-link.png"
-                            alt="whatsApp"></a>
-                    <a href="https://twitter.com/?lang=es"><img src="./img/twitter-link.png" alt="twitter"></a>
-                </div>
-
-
-            </div>
-
-
-
-
-        </div>
-
-        <p class="text-end">
-            © All rights reserved. Quintana del rey 2023
-        </p>
-    </footer>
+    <?php
+    include("./parts/footer.php");
+    ?>
 
     <script src="./js/funtions.js"></script>
 
