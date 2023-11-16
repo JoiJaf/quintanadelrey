@@ -36,11 +36,20 @@
     text-decoration: underline;
 }
 
-.prueba-cards{
-    overflow: hidden;
-    height: 20rem;
-    width: 100%;
-    border-radius: 4rem;
+.login-btn{
+    background: var(--secondary_color);
+    width: 23.563rem;
+    height: 3.5rem;
+    border: none;
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-md);
+    border-radius: 2rem;
+    font-weight: 1rem;
+}
+
+.div-login-btn{
+    display: flex;
+    justify-content: center;
 }
 
 

@@ -1,19 +1,93 @@
 <?php
 require_once 'database.php';
+$message = "";
 
 if ($_POST) {
-    var_dump($_POST);
-    $pass = password_hash($_POST["password"], PASSWORD_DEFAULT, ['cost' => 12]); //revisar
-    $database->insert("tb_usuarios", [
-        "nombre" => $_POST["firstName"],
-        "apellido" => $_POST["lastName"],
-        "cedula" => $_POST["id"],
-        "telefono" => $_POST["phone"],
-        "correo" => $_POST["email"],
-        "fecha_nacimiento" => $_POST["birthday"],
-        "nombre_usuario" => $_POST["user"],
-        "contrasena" => $pass
-    ]);
+
+    if (isset($_POST["login"])) {
+
+        $user = $database->select("tb_usuarios", "*", [
+            "nombre_usuario" => $_POST["userlog"]
+        ]);
+        var_dump($user);
+
+        if (count($user) > 0) {
+            //validate password
+
+            if (password_verify($_POST["passlog"], $user[0]["contrasena"])) {
+                session_start();
+                $_SESSION["isLoggedIn"] = true;
+                $_SESSION["usr_name"] = $user[0]["nombre_usuario"];
+                header("location: index.php");
+            } else {
+                $message = "wrong username or password";
+            }
+        } else {
+            $message = "wrong username or password";
+        }
+
+        //validate if user already logged in
+
+        //if(isset($_SESSION["isLoggedIn"])){
+        //header("location: book.php?id=".$_POST["login"]);
+        //}else{
+        //validate login
+        //echo "validate login: ".$_POST["login"];
+        //}
+    }
+
+    if (isset($_POST["register"])) {
+        //validate if user already registered
+        $validateUsername = $database->select("tb_usuarios", "*", [
+            "nombre_usuario" => $_POST["user"]
+        ]);
+        $validateCedula = $database->select("tb_usuarios", "*", [
+            "cedula" => $_POST["id"]
+        ]);
+        $validateEmail = $database->select("tb_usuarios", "*", [
+            "correo" => $_POST["email"]
+        ]);
+
+        if (count($validateUsername) > 0) {
+            $message = "This username is already registered";
+        } else {
+            if (count($validateCedula) > 0) {
+                $message = "This ID is already registered";
+            } else {
+                if (count($validateEmail) > 0) {
+                    $message = "This email is already registered";
+                } else {
+                    $pass = password_hash($_POST["password"], PASSWORD_DEFAULT, ['cost' => 12]);
+                    $database->insert("tb_usuarios", [
+                        "nombre" => $_POST["firstName"],
+                        "apellido" => $_POST["lastName"],
+                        "cedula" => $_POST["id"],
+                        "telefono" => $_POST["phone"],
+                        "correo" => $_POST["email"],
+                        "fecha_nacimiento" => $_POST["birthday"],
+                        "nombre_usuario" => $_POST["user"],
+                        "contrasena" => $pass
+                    ]);
+
+                    $id = $database->select("tb_usuarios", "*", [
+                        "correo" => $_POST["email"]
+
+                    ]);
+
+                    var_dump($id[0]["id_usuario"]);
+
+
+                    //header("location: book.php?id=".$_POST["register"]);
+                    header("location: response.php?id=" . $id[0]["id_usuario"] . "");
+                }
+            }
+
+
+        }
+    }
+
+
+
 }
 
 if ($_GET) {
@@ -61,28 +135,40 @@ if ($_GET) {
                 <h2 class="login-title">log in</h2>
                 <img class="login-shield" src="./img/escudo.png" alt="">
                 <div class="login-form-ctn">
-                    <form class="form-ctn" method="get" action="index.php">
+
+                    <form class="form-ctn" method="post" action="register.php">
                         <div class="form-inputs">
                             <img src="./img/min-login.png" alt="">
-                            <input class="fr-input_log" type="text">
+                            <input class="fr-input_log" type="text" name="userlog">
                         </div>
 
                         <div class="form-inputs">
                             <img src="./img/min-pwd.png" alt="">
-                            <input class="fr-input_log" type="text">
+                            <input class="fr-input_log" type="password" name="passlog">
                         </div>
+
+                        <div class="form-tools"> <!-- a esto hay que corregir y poner un width de 100%-->
+                            <div>
+                                <input type="checkbox"> <span>remember user</span>
+                            </div>
+                            <a class="link-pwd" href=""> ¿forget your password?</a>
+                        </div>
+
+                        <div class="div-login-btn">
+                            <input class="login-btn" type="submit" value="Login">
+                        </div>
+                        <p>
+                            <?php echo $message; ?>
+                        </p>
+                        <input type="hidden" name="login" value="1">
+
                     </form>
-                    <div class="form-tools">
-                        <div>
-                            <input type="checkbox"> <span>remember user</span>
-                        </div>
-                        <a class="link-pwd" href=""> ¿forget your password?</a>
-                    </div>
 
 
-                    <a href="index.php">
+
+                    <!-- <a href="index.php">
                         <img src="./img/btn_logIn.png" alt="">
-                    </a>
+                    </a> -->
 
                     <hr>
 
@@ -107,7 +193,7 @@ if ($_GET) {
                 <h2 class="login-title">create Account</h2>
                 <img class="login-shield" src="./img/escudo.png" alt="">
                 <div class="login-form-ctn">
-                    <form class="form-ctn" method="post" action="response.php">
+                    <form class="form-ctn" method="post" action="register.php">
 
                         <div class="register">
                             <div class="register-align">
@@ -180,9 +266,11 @@ if ($_GET) {
 
                             <hr class="register-bar">
                         </div>
-
                         <input class="createAcountbtn" type="submit" value="Crear Cuenta">
-
+                        <p>
+                            <?php echo $message; ?>
+                        </p>
+                        <input type="hidden" name="register" value="1">
                     </form>
 
             </section>
