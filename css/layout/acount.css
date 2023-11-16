@@ -101,6 +101,11 @@
     background: var(--footer_color);
     color: var(--white);
     font-family: var(--font_roboto);
+    
+}
+
+.fr-button:hover{
+    cursor: pointer;
 }
 
 .clr{
