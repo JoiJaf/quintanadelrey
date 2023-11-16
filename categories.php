@@ -204,7 +204,7 @@ if($_GET){
             foreach($dishes as $dish){
 
                echo "<div class='cards-ctn'>";
-               echo "<a href='platillo.php' class='cards-info main-course cards-ctn ' style='background: url(./img/".$dish["platillo_img"].")'>";     
+               echo "<a href='platillo.php?id=".$dish["id_platillo"]."' class='cards-info main-course cards-ctn ' style='background: url(./img/".$dish["platillo_img"].")'>";     
                echo "<div class='opacity'>";         
                echo "<h2 class='cards-title /*cards-title-mod*/'>".$dish["platillo_nombre"]."</h2>";
                echo "<p class='card-text'>".$dish["platillo_descrip"]."</p>";
