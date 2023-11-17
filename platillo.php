@@ -1,3 +1,26 @@
+<?php
+require_once 'database.php';
+$modalities= $database->select("tb_tipo_pedido","*");
+
+if($_GET){
+
+    $dish = $database->select("tb_info_platillo","*",["id_platillo"=> $_GET["id"]]);
+    $portions=$database->select("tb_info_platillo",[
+        "[><]tb_cant_personas"=>["platillo_cant_per_porci"=>"cant_pers"]
+    ],[
+        "id_platillo", "platillo_nombre", "cant_pers_descrip"
+    ],["id_platillo"=> $_GET["id"]]);
+
+    var_dump($portions);
+
+}
+
+if($_POST){
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +51,7 @@
         include("./parts/headerNav.php");
         ?>
 
-        <div class="banner-platillo">
+        <div class="banner-platillo" style="background: url(./img/<?php echo $dish[0]['platillo_img']?>)">
             <div class="mask">
 
 
@@ -41,17 +64,21 @@
 
         <section class="dish">
             <div class="dish-information">
-                <h1 class="dish-title">Paella</h1>
-                <img class="dish-img" src="./img/star.png" alt="outstanding">
+                <h1 class="dish-title"><?php echo $dish[0]["platillo_nombre"] ?></h1>
+                <?php
+                if($dish[0]["destacado"]==1){
+                    echo "<img class='dish-img' src='./img/star.png' alt='outstanding'>";
+                }
+                
+                ?>
+                
             </div>
 
             <h2 class="dish-subtitle">Description: </h2>
 
             <div class="dish-information">
-                <p class="dish-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima nulla vero aliquid
-                    aspernatur cumque eius minus sint, blanditiis esse perspiciatis impedit autem enim molestiae tempore
-                    aut facere hic voluptate obcaecati?</p>
-                <p class="dish-price">€ 20</p>
+                <p class="dish-text"><?php echo $dish[0]["platillo_descrip"] ?></p>
+                <p class="dish-price">€ <?php echo $dish[0]["platillo_precio"] ?></p>
             </div>
 
         </section>
@@ -62,9 +89,15 @@
             <div class="specifications-adjust">
                 <h2 class="specifications-text">Modality: </h2>
                 <select class="select" name="select">
-                    <option value="lounge">lounge</option>
+                <?php 
+                foreach($modalities as $modality){
+
+                        echo"<option value='".$modality["pedido_descripcion"]."'>".$modality["pedido_descripcion"]."</option>";
+                }
+            ?>
+                    <!-- <option value="lounge">lounge</option>
                     <option value="express" selected>Express</option>
-                    <option value="go">Go to take away</option>
+                    <option value="go">Go to take away</option> -->
                 </select>
                 <!-- <img src="./img/modality.png" alt="Modality"> -->
             </div>
@@ -72,9 +105,10 @@
             <div class="specifications-adjust">
                 <h2 class="specifications-text">Portions: </h2>
                 <select class="select" name="select">
-                    <option value="individual">Individual</option>
-                    <option value="couples" selected>Couples</option>
-                    <option value="familiar">Familiar</option>
+                
+                    <option value="individual"><?php echo $portions[0]["cant_pers_descrip"] ?></option>
+                    <!-- <option value="couples" selected>Couples</option>
+                    <option value="familiar">Familiar</option> -->
                 </select>
                 <!-- <img src="./img/portions.png" alt="portions"> -->
             </div>
