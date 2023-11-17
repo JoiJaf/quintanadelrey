@@ -28,10 +28,26 @@
                         </svg>
                     </a>
 
-                    <a class="login" href="register.php">
+                    <?php 
+                session_start();
+                if(isset($_SESSION["isLoggedIn"])){
+                    echo "<div class='login'>";
+                    echo "<img class='logo-user' src='./img/user.png' alt='user-logo'>";
+                    echo "</div>";
+                    echo "<a class='navigation-link' href='./acount.php'>".$_SESSION["usr_name"]."</a>";
+                    echo "<a class='navigation-link' href='./logout.php'>Logout</a>";
+                }else{
+                    echo "<div class='login'>";
+                    echo "<img class='logo-user' src='./img/user.png' alt='user-logo'>";
+                    echo "</div>";
+                    echo "<a class='login' href='./register.php'>Login</a>";
+                }
+            ?>
+
+                    <!-- <a class="login" href="register.php">
                         <img class="logo-user" src="./img/user.png" alt="user-logo">
                     </a>
-                    <a class="login" href="register.php">Login</a>
+                    <a class="login" href="register.php">Login</a> -->
                 </nav>
             </div>
         </div>
