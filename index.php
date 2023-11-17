@@ -1,3 +1,12 @@
+<?php
+
+require_once 'database.php';
+
+$featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,7 +89,7 @@
         <!-- mean foods -->
         <div>
             <div class="titles">
-                <h2>Platos destacados</h2>
+                <h2>Featured dishes</h2>
             </div>
             <!-- Carrusel de platos destacados -->
             <div class="carousels-container">
@@ -89,59 +98,36 @@
 
                 <div class="inf-carousels-container">
 
-                    <div class="carousel">
-                        <div class="carousels-image-container">
-                            <a href="platillo.php" class="image-mask">
-                                <img class="carousels-image" src="./img/paella.jpg" alt="dish">
-                            </a>
-                        </div>
-                        <div class="information-container">
-                            <h3 class="carousels-information-title">Paella</h3>
-                            <p class="carousels-parr">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod
-                                tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi.</p>
-                            <div class="carousels-button">
-                                <a class="btn-inf" href="#">Ordénalo</a>
-                            </div>
-                        </div>
-                    </div>
+                <?php
 
+                    foreach($featured as $itemfeatured){
+                        echo "<div class='carousel'>";
+                        echo "<div class='carousels-image-container'>";
+                        echo "<a href='platillo.php?id=".$itemfeatured["id_platillo"]."' class='image-mask'>";  
+                        echo "<img class='carousels-image' src='./img/".$itemfeatured["platillo_img"]."' alt='dish'>";
+                        echo "</a>";        
+                        echo "</div>";    
+                        echo "<div class='information-container'>";    
+                        echo "<h3 class='carousels-information-title'>".$itemfeatured["platillo_nombre"]."</h3>";        
+                        echo "<p class='carousels-parr'>".$itemfeatured["platillo_descrip"]."</p>";        
+                        echo "<div class='carousels-button'>";        
+                        echo "<a class='btn-inf' href='platillo.php?id=".$itemfeatured["id_platillo"]."'>Ordénalo</a>";            
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                ?>
+            </div>
 
-                    <div class="carousel">
-                        <div class="carousels-image-container">
-                            <a href="platillo.php" class="image-mask">
-                                <img class="carousels-image" src="./img/arroz al horno.png" alt="dish">
-                            </a>
-                        </div>
-                        <div class="information-container">
-                            <h3 class="carousels-information-title">Paella</h3>
-                            <p class="carousels-parr">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod
-                                tempor incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi.</p>
-                            <div class="carousels-button">
-                                <a class="btn-inf" href="#">Ordénalo</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-                <div class="arrow-container"><img class="arrow arrow-right" src="./img/right_arrow.svg"
+            <div 
+            class="arrow-container"><img class="arrow arrow-right" src="./img/right_arrow.svg"
                         alt="right-arrow"></div>
             </div>
         </div>
         <!-- Categories -->
         <section>
             <div class="titles ">
-                <h2 class="titles-cat">Categorias</h2>
+                <h2 class="titles-cat">Categories</h2>
             </div>
 
             <div class="cards-container">
@@ -149,28 +135,28 @@
                 <a href="categories.php?id=1" class="cards-info img-size appetizers ">
 
                     <div class="cards-title-container">
-                        <h2 class="cards-title">Entradas</h2>
+                        <h2 class="cards-title">Appetizers</h2>
                     </div>
                 </a>
 
                 <a href="categories.php?id=2" class="cards-info img-size main-course">
 
                     <div class="cards-title-container">
-                        <h2 class="cards-title">Plato Fuerte</h2>
+                        <h2 class="cards-title">Main dishes</h2>
                     </div>
                 </a>
 
                 <a href="categories.php?id=3" class="cards-info img-size desserts">
 
                     <div class="cards-title-container">
-                        <h2 class="cards-title">Postres</h2>
+                        <h2 class="cards-title">Desserts</h2>
                     </div>
                 </a>
 
                 <a href="categories.php?id=4" class="cards-info img-size drinks">
 
                     <div class="cards-title-container">
-                        <h2 class="cards-title">Bebidas</h2>
+                        <h2 class="cards-title">Drinks</h2>
                     </div>
                 </a>
 
@@ -189,7 +175,7 @@
                 <div class="location-text">
                     <h2 class="location-subtitles">Quintana del Rey</h2>
                     <hr class="underline">
-                    <h3>Ubicanos</h3>
+                    <h3>Find us</h3>
                 </div>
                 <p class="location-paragraph">It is a long established fact that a reader will be distracted by the
                     readable content of a page when

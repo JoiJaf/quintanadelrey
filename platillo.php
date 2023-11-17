@@ -1,9 +1,11 @@
 <?php
 require_once 'database.php';
 $modalities= $database->select("tb_tipo_pedido","*");
+$data=$database->select("tb_info_platillo","*");
+$related=[];
 
 if($_GET){
-
+    
     $dish = $database->select("tb_info_platillo","*",["id_platillo"=> $_GET["id"]]);
     $portions=$database->select("tb_info_platillo",[
         "[><]tb_cant_personas"=>["platillo_cant_per_porci"=>"cant_pers"]
@@ -172,54 +174,46 @@ if($_POST){
         <!-- featured -->
 
         <div class="specifications">
-            <h2 class="specifications-text text-bold"> related dishes</h2>
+            <h2 class="specifications-text text-bold"> Related dishes</h2>
         </div>
 
         <div class="carousels-ctn-dishes">
             <div class="arrow-container "><img class="arrow arrow-left" src="./img/left_arrow.svg" alt="left-arrow">
             </div>
-
-
             <div class="info-ctn">
-                <div class="carousel">
+
+            <?php
+             for($i=0; $i<count($data); $i++){
+                 if($data[$i]["platillo_catego"]==$dish[0]["platillo_catego"]){
+                     $related[]=$data[$i];
+                 }
+             }
+             foreach($related as $relatedItem){
+                 
+                 echo "<div class='carousel'>";    
+                 echo "<div class='ctn-carrousel-dish'>";        
+                 echo "<h3 class='carousels-information-title no-margin'>".$relatedItem["platillo_nombre"]."</h3>";            
+                 echo "<a href='platillo.php?id=".$relatedItem["id_platillo"]."' class='image-mask'>";            
+                 echo "<img class='carousels-image' src='./img/".$relatedItem["platillo_img"]."' alt='dish'>";                
+                 echo "</a>";
+                 echo "</div>";
+                 echo "</div>";
+             }
+            ?>
+                <!-- <div class="carousel">
                     <div class="ctn-carrousel-dish">
                         <h3 class="carousels-information-title no-margin">baked rice</h3>
                         <a href="platillo.php" class="image-mask">
                             <img class="carousels-image" src="./img/arroz al horno.png" alt="dish">
                         </a>
                     </div>
-                </div>
-
-
-                <div class="carousel">
-                    <div class="ctn-carrousel-dish">
-                        <h3 class="carousels-information-title no-margin"> paella</h3>
-                        <a href="platillo.php" class="image-mask">
-                            <img class="carousels-image" src="./img/paella.jpg" alt="dish">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="carousel">
-                    <div class="ctn-carrousel-dish">
-                        <h3 class="carousels-information-title no-margin"> pantineta</h3>
-                        <a href="platillo.php" class="image-mask">
-                            <img class="carousels-image" src="./img/pant-postre.jpg" alt="dish">
-                        </a>
-                    </div>
-                </div>
+                </div>-->
 
             </div>
-
             <div class="arrow-container"><img class="arrow arrow-right" src="./img/right_arrow.svg" alt="right-arrow">
             </div>
 
         </div>
-
-
-
-
-
 
     </main>
 

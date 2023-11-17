@@ -15,7 +15,7 @@
 
                 <nav class="navigation">
                     <a class="navigation-link" href="index.php">Home</a>
-                    <a class="navigation-link" href="categories.php">Product</a>
+                    <a class="navigation-link" href="categories.php?id=1">Product</a>
                     <a class="navigation-link" href="#">Contact</a>
 
                     <a href="cart.php">
