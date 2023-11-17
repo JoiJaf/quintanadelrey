@@ -43,6 +43,11 @@
                     echo "<a class='login' href='./register.php'>Login</a>";
                 }
             ?>
+
+                    <!-- <a class="login" href="register.php">
+                        <img class="logo-user" src="./img/user.png" alt="user-logo">
+                    </a>
+                    <a class="login" href="register.php">Login</a> -->
                 </nav>
             </div>
         </div>
