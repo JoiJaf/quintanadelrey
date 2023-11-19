@@ -21,6 +21,7 @@ if ($_POST) {
                 header("location: index.php");
             } else {
                 $message = "wrong username or password";
+                var_dump("estoy aqui");
             }
         } else {
             $message = "wrong username or password";

@@ -52,6 +52,25 @@
     justify-content: center;
 }
 
+.search-btn{
+    margin-bottom: 0.5rem;
+}
+
+.navigation-link-search{
+    display: flex;
+}
+
+.div-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20rem;
+}
+
+.search-form{
+    margin: 2rem 0rem;
+}
+
 
 /* Galaxy Tab A10.1" (2019)*/
 @media(max-width:1200px) {

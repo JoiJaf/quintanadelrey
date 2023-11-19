@@ -14,6 +14,7 @@
                 <!-- mobile nav btn -->
 
                 <nav class="navigation">
+                <a class="navigation-link navigation-link-search" href="search.php"><img class="search-btn" src="./img/lupa.svg" alt=""></a>
                     <a class="navigation-link" href="index.php">Home</a>
                     <a class="navigation-link" href="categories.php?id=1">Product</a>
                     <a class="navigation-link" href="#">Contact</a>
@@ -30,11 +31,13 @@
 
                     <?php 
                 session_start();
+                
                 if(isset($_SESSION["isLoggedIn"])){
+                    $idsession=$database->select("tb_usuarios","*",["nombre_usuario"=>$_SESSION["usr_name"]]);
                     echo "<div class='login'>";
                     echo "<img class='logo-user' src='./img/user.png' alt='user-logo'>";
                     echo "</div>";
-                    echo "<a class='navigation-link' href='./acount.php'>".$_SESSION["usr_name"]."</a>";
+                    echo "<a class='navigation-link' href='./acount.php?id=".$idsession[0]["id_usuario"]."'>".$_SESSION["usr_name"]."</a>";
                     echo "<a class='navigation-link' href='./logout.php'>Logout</a>";
                 }else{
                     echo "<div class='login'>";

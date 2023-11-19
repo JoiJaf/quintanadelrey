@@ -1,3 +1,27 @@
+<?php
+require_once 'database.php';
+
+if($_GET){
+    $user=$database->select("tb_usuarios","*",["id_usuario"=>$_GET["id"]]);
+
+}
+
+if($_POST){
+
+    var_dump($_POST["password"]);
+    if($_POST["password"] != ""){
+
+        $pass = password_hash($_POST["password"], PASSWORD_DEFAULT, ['cost' => 12]);
+        $database->update("tb_usuarios",[
+            "contrasena"=>$pass
+        ],["id_usuario"=>$_GET["id"]]);
+
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +61,7 @@
 
         <section class="ctn-us">
             <img class="img-us" src="./img/perfil.webp" alt="">
-            <h2 class="us-name">Cuenta de usuario</h2>
+            <h2 class="us-name"><?php echo $user[0]["nombre_usuario"]?></h2>
         </section>
 
         <div class="container-profile">
@@ -89,25 +113,25 @@
                         <div class="fr-space">
                             <label class="fr-text" for="">Name:</label>
                             <div class="size-fr">
-                                <input class="fr-input-us" type="text" value="name">
-                                <input class="fr-input-us" type="text" value="surname">
+                                <input class="fr-input-us" type="text" value="<?php echo $user[0]["nombre"]?>">
+                                <input class="fr-input-us" type="text" value="<?php echo $user[0]["apellido"]?>">
                             </div>
 
                         </div>
 
                         <div class="fr-space">
                             <label class="fr-text" for="">Phone:</label>
-                            <input class="fr-input-us" type="text" value="" placeholder="">
+                            <input class="fr-input-us" type="text" value="<?php echo $user[0]["telefono"]?>" placeholder="">
                         </div>
 
                         <div class="fr-space">
                             <label class="fr-text" for="">E-mail:</label>
-                            <input class="fr-input-us" type="text" value="" placeholder="venezuela@gmail">
+                            <input class="fr-input-us" type="text" value="<?php echo $user[0]["correo"]?>" placeholder="correo">
                         </div>
 
                         <div class="fr-space">
                             <label class="fr-text" for="">birthdate:</label>
-                            <input class="fr-input-us" type="date">
+                            <input class="fr-input-us" type="date" value="<?php echo $user[0]["fecha_nacimiento"]?>">
                         </div>
 
                         <input class="fr-button" type="submit">
@@ -118,13 +142,13 @@
                 <div class="passw">
                     <h3 class="subtitle">password</h3>
                     <hr>
-                    <form action="">
+                    <form action="acount.php?id=<?php echo $user[0]["id_usuario"]?>" method="post">
                         <div class="fr-space">
                             <label class="fr-text" for="">New password</label>
-                            <input class="fr-input-us" type="password">
+                            <input class="fr-input-us" type="password" name="password">
                         </div>
 
-                        <input class="fr-button" type="submit" name="" id="">
+                        <input class="fr-button" type="submit">
                     </form>
                 </div>
 

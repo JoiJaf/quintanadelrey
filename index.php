@@ -111,7 +111,7 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
                         echo "<h3 class='carousels-information-title'>".$itemfeatured["platillo_nombre"]."</h3>";        
                         echo "<p class='carousels-parr'>".$itemfeatured["platillo_descrip"]."</p>";        
                         echo "<div class='carousels-button'>";        
-                        echo "<a class='btn-inf' href='platillo.php?id=".$itemfeatured["id_platillo"]."'>Ordénalo</a>";            
+                        echo "<a class='btn-inf' href='platillo.php?id=".$itemfeatured["id_platillo"]."'>Order now</a>";            
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
