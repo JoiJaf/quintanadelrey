@@ -1,6 +1,6 @@
 
 .header{
-    margin: 11rem 0 4rem 0;
+    margin: 10.5rem 0 4rem 0;
     display: grid;
 }
 
@@ -28,9 +28,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 28rem;
+    height: 45rem;
     text-align: center;
     position: relative;
+}
+
+.ctn-bnr{
+   padding-top: 4rem;
 }
 
 .bnr-title{
@@ -121,7 +125,7 @@
     background-position: center center;
     width: 100%;
     max-width: 100%;
-    height: 28rem;
+    height: 34rem;
     position: relative;
     margin-bottom: 0; 
 }

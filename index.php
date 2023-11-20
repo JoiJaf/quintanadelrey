@@ -39,6 +39,7 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
 
         <div class="banner">
             <div class="mask">
+                <div class="ctn-bnr">
                 <h1 class="bnr-title">
                     Welcome
                 </h1>
@@ -47,7 +48,9 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
                     ¡Conquering palates!
                 </h4>
 
-                <a class="bnr-button bnr-fund" href="platillo.php">Reserve now</a>
+                <a class="bnr-button bnr-fund" href="index.php">Reserve now</a>
+                </div>
+                
 
             </div>
         </div>

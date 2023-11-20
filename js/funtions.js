@@ -92,15 +92,14 @@ arrowRight.addEventListener('click', () => {
 function moveCarousel(direction) {
   let carousels = document.querySelectorAll('.carousel');
 
-  for (let i = 0; i < carousels.length; i++) {
-    carousels[i].style.transform = `translateX(${direction === 'arrow-right' ? '-' : ''}${100 * currentIndex}%)`;
+  if (direction === 'arrow-right') {
+    currentIndex = (currentIndex + 1) % carousels.length;
+  } else if (direction === 'arrow-left') {
+    currentIndex = (currentIndex - 1 + carousels.length) % carousels.length;
   }
 
-  if (direction === 'arrow-right') {
-    currentIndex = (currentIndex - 1 + carousels.length) % carousels.length;
-  } else if (direction === 'arrow-left') {
-    currentIndex = (currentIndex + 1 - carousels.length) % carousels.length;
-
+  for (let i = 0; i < carousels.length; i++) {
+    carousels[i].style.transform = `translateX(${100 * currentIndex}%)`;
   }
 }
 
@@ -117,11 +116,15 @@ function moveCarouselDish(direction) {
   } else if (direction === 'arrow-left') {
     currentDish = (currentDish + 1 - carousels.length ) % carousels.length;
   } else if (direction === 'arrow-right') {
-    currentDish = (currentDish + 1) % carousels.length;
+    currentDish = (currentDish - 1 + carousels.length) % carousels.length;
   }
 
   console.log("moveCarouselDish");
 }
+
+
+
+//script of the page dish
 
 
 
