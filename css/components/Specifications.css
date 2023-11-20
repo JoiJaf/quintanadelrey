@@ -65,16 +65,20 @@
 }
 
 .accompaniment-btn{
-    color: var(--white);
+    color: var(--primary_color);
     text-align: center;
     display: inline-block;
 
     text-transform: uppercase;
     font-family: var(--font_roboto);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-nm);
     font-weight: 800;
     
     cursor: pointer;
+}
+
+.op{
+    color: black;
 }
 
 .bg-button{

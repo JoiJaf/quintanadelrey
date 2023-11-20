@@ -1,23 +1,25 @@
 <?php
 require_once 'database.php';
-$modalities= $database->select("tb_tipo_pedido","*");
-$data=$database->select("tb_info_platillo","*");
-$related=[];
+$modalities = $database->select("tb_tipo_pedido", "*");
+$data = $database->select("tb_info_platillo", "*");
+$related = [];
 
-if($_GET){
-    
-    $dish = $database->select("tb_info_platillo","*",["id_platillo"=> $_GET["id"]]);
-    $portions=$database->select("tb_info_platillo",[
-        "[><]tb_cant_personas"=>["platillo_cant_per_porci"=>"cant_pers"]
-    ],[
-        "id_platillo", "platillo_nombre", "cant_pers_descrip"
-    ],["id_platillo"=> $_GET["id"]]);
+if ($_GET) {
+
+    $dish = $database->select("tb_info_platillo", "*", ["id_platillo" => $_GET["id"]]);
+    $portions = $database->select("tb_info_platillo", [
+        "[><]tb_cant_personas" => ["platillo_cant_per_porci" => "cant_pers"]
+    ], [
+        "id_platillo",
+        "platillo_nombre",
+        "cant_pers_descrip"
+    ], ["id_platillo" => $_GET["id"]]);
 
     var_dump($portions);
 
 }
 
-if($_POST){
+if ($_POST) {
 
 }
 ?>
@@ -53,7 +55,7 @@ if($_POST){
         include("./parts/headerNav.php");
         ?>
 
-        <div class="banner-platillo" style="background: url(./img/<?php echo $dish[0]['platillo_img']?>)">
+        <div class="banner-platillo" style="background: url(./img/<?php echo $dish[0]['platillo_img'] ?>)">
             <div class="mask">
 
 
@@ -66,21 +68,27 @@ if($_POST){
 
         <section class="dish">
             <div class="dish-information">
-                <h1 class="dish-title"><?php echo $dish[0]["platillo_nombre"] ?></h1>
+                <h1 class="dish-title">
+                    <?php echo $dish[0]["platillo_nombre"] ?>
+                </h1>
                 <?php
-                if($dish[0]["destacado"]==1){
+                if ($dish[0]["destacado"] == 1) {
                     echo "<img class='dish-img' src='./img/star.png' alt='outstanding'>";
                 }
-                
+
                 ?>
-                
+
             </div>
 
             <h2 class="dish-subtitle">Description: </h2>
 
             <div class="dish-information">
-                <p class="dish-text"><?php echo $dish[0]["platillo_descrip"] ?></p>
-                <p class="dish-price">€ <?php echo $dish[0]["platillo_precio"] ?></p>
+                <p class="dish-text">
+                    <?php echo $dish[0]["platillo_descrip"] ?>
+                </p>
+                <p class="dish-price">€
+                    <?php echo $dish[0]["platillo_precio"] ?>
+                </p>
             </div>
 
         </section>
@@ -91,12 +99,12 @@ if($_POST){
             <div class="specifications-adjust">
                 <h2 class="specifications-text">Modality: </h2>
                 <select class="select" name="select">
-                <?php 
-                foreach($modalities as $modality){
+                    <?php
+                    foreach ($modalities as $modality) {
 
-                        echo"<option value='".$modality["pedido_descripcion"]."'>".$modality["pedido_descripcion"]."</option>";
-                }
-            ?>
+                        echo "<option value='" . $modality["pedido_descripcion"] . "'>" . $modality["pedido_descripcion"] . "</option>";
+                    }
+                    ?>
                     <!-- <option value="lounge">lounge</option>
                     <option value="express" selected>Express</option>
                     <option value="go">Go to take away</option> -->
@@ -107,8 +115,10 @@ if($_POST){
             <div class="specifications-adjust">
                 <h2 class="specifications-text">Portions: </h2>
                 <select class="select" name="select">
-                
-                    <option value="individual"><?php echo $portions[0]["cant_pers_descrip"] ?></option>
+
+                    <option value="individual">
+                        <?php echo $portions[0]["cant_pers_descrip"] ?>
+                    </option>
                     <!-- <option value="couples" selected>Couples</option>
                     <option value="familiar">Familiar</option> -->
                 </select>
@@ -121,7 +131,16 @@ if($_POST){
             <div class="accompaniment">
                 <div class="accompaniment-align">
                     <h3 class="accompaniment-text">accompaniment 1</h3>
-                    <div class="bg-button"><a class="accompaniment-btn">Select</a></div>
+                    <div class="bg-button">
+
+                        <select class="accompaniment-btn">
+                            <option class="op" value="tortillas">tortillas</option>
+                            <option value="tortillas">maduro</option>
+                            <option value="tortillas">huevo</option>
+
+                        </select>
+
+                    </div>
 
                 </div>
 
@@ -129,7 +148,14 @@ if($_POST){
 
                 <div class="accompaniment-align">
                     <h3 class="accompaniment-text">accompaniment 2</h3>
-                    <div class="bg-button"><a class="accompaniment-btn">Select</a></div>
+                    <div class="bg-button">
+                    <select class="accompaniment-btn">
+                            <option value="tortillas">ensalada</option>
+                            <option value="tortillas">picadillo</option>
+                            <option value="tortillas">raspas</option>
+
+                        </select>
+                    </div>
                 </div>
 
             </div>
@@ -137,7 +163,7 @@ if($_POST){
             <div class="accompaniment">
                 <div class="accompaniment-align">
                     <h3 class="accompaniment-text">quantity</h3>
-                    <input class="quantity" type="number" value="0" min="0" max="8">
+                    <input id="quantity" class="quantity" type="number" value="1" min="0" max="8">
                 </div>
 
             </div>
@@ -159,12 +185,14 @@ if($_POST){
 
             <a href="#" class="btn-add">
                 <div class="circle">
-                    <p>1</p>
+                    <p id="quantityDish"></p>
                 </div>
 
                 Add to card
 
-                <p class="dish-price">€ 20</p>
+                <p id="dish-price" class="dish-price">€
+                    <?php echo $dish[0]["platillo_precio"] ?>
+                </p>
             </a>
 
         </div>
@@ -182,24 +210,24 @@ if($_POST){
             </div>
             <div class="info-ctn">
 
-            <?php
-             for($i=0; $i<count($data); $i++){
-                 if($data[$i]["platillo_catego"]==$dish[0]["platillo_catego"]){
-                     $related[]=$data[$i];
-                 }
-             }
-             foreach($related as $relatedItem){
-                 
-                 echo "<div class='carousel'>";    
-                 echo "<div class='ctn-carrousel-dish'>";        
-                 echo "<h3 class='carousels-information-title no-margin'>".$relatedItem["platillo_nombre"]."</h3>";            
-                 echo "<a href='platillo.php?id=".$relatedItem["id_platillo"]."' class='image-mask'>";            
-                 echo "<img class='carousels-image' src='./img/".$relatedItem["platillo_img"]."' alt='dish'>";                
-                 echo "</a>";
-                 echo "</div>";
-                 echo "</div>";
-             }
-            ?>
+                <?php
+                for ($i = 0; $i < count($data); $i++) {
+                    if ($data[$i]["platillo_catego"] == $dish[0]["platillo_catego"]) {
+                        $related[] = $data[$i];
+                    }
+                }
+                foreach ($related as $relatedItem) {
+
+                    echo "<div class='carousel'>";
+                    echo "<div class='ctn-carrousel-dish'>";
+                    echo "<h3 class='carousels-information-title no-margin'>" . $relatedItem["platillo_nombre"] . "</h3>";
+                    echo "<a href='platillo.php?id=" . $relatedItem["id_platillo"] . "' class='image-mask'>";
+                    echo "<img class='carousels-image' src='./img/" . $relatedItem["platillo_img"] . "' alt='dish'>";
+                    echo "</a>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
                 <!-- <div class="carousel">
                     <div class="ctn-carrousel-dish">
                         <h3 class="carousels-information-title no-margin">baked rice</h3>
@@ -223,6 +251,34 @@ if($_POST){
 
 
     <script src="./js/funtions.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let quantity = document.getElementById('quantity');
+            let dishPrice = document.getElementById('dish-price');
+            let initialDishPrice = <?php echo $dish[0]["platillo_precio"] ?>;
+            let quantityDish = document.getElementById('quantityDish');
+            let initial = 1;
+
+            dishPrice.textContent = '€ ' + initialDishPrice.toFixed(2);
+            quantityDish.textContent = initial;
+            quantity.addEventListener('input', function () {
+                let quantityNum = parseInt(quantity.value) || 0;
+                let totalPrice = initialDishPrice * quantityNum;
+
+                dishPrice.textContent = '€ ' + totalPrice.toFixed(2);
+
+
+                quantityDish.textContent = quantityNum || 0;
+
+                if (quantityDish == initial) {
+                    quantity.value = 1;
+                }
+
+            });
+        });
+    </script>
+
 </body>
 
 </html>
