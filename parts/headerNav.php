@@ -33,11 +33,15 @@
                 session_start();
                 
                 if(isset($_SESSION["isLoggedIn"])){
+                    
                     $idsession=$database->select("tb_usuarios","*",["nombre_usuario"=>$_SESSION["usr_name"]]);
                     echo "<div class='login'>";
                     echo "<img class='logo-user' src='./img/user.png' alt='user-logo'>";
                     echo "</div>";
                     echo "<a class='navigation-link' href='./acount.php?id=".$idsession[0]["id_usuario"]."'>".$_SESSION["usr_name"]."</a>";
+                    if($_SESSION["usr_name"]=="admin"){
+                    echo "<a class='navigation-link' href='./products-list.php'>Management</a>";  
+                    }
                     echo "<a class='navigation-link' href='./logout.php'>Logout</a>";
                 }else{
                     echo "<div class='login'>";

@@ -11,27 +11,18 @@ $message="";
 
 if($_POST){
 
-    //probar la logica******************************************************
-
-    $selectedCat= $database->select("tb_categorias","categ_nombre");
-    $selectecPor= $database->select("tb_cant_personas","cant_pers");
-
     foreach($dishes as $dish){
 
-        if($dish["platillo_catego"]==$selectedCat[0] && $dish["platillo_cant_per_porci"]==$selectecPor[0]){
+        if($dish["platillo_catego"]==$_POST["category"] && $dish["platillo_cant_per_porci"]==$_POST["portion"]){
             $filtereddishes[]=$dish;
         }
-
     }
 
-    if(count($filtereddishes)<0){
+
+    if(count($filtereddishes)==0){
         $message="No match results";
     }
-
-
-
 }
-
 
 ?>
 
@@ -71,11 +62,11 @@ if($_POST){
     <div class="div-search">
     <div class="specifications-adjust">
                 <h2>Category: </h2>
-                <select class="select" name="category" id="category">
+                <select class="select" name="category">
                 <?php 
                 foreach($categories as $category){
 
-                        echo"<option value='".$category["categ_nombren"]."'>".$category["categ_nombre"]."</option>";
+                        echo"<option value='".$category["categ_nombre"]."'>".$category["categ_nombre"]."</option>";
                 }
                 ?>
                 </select>
@@ -83,11 +74,11 @@ if($_POST){
 
             <div class="specifications-adjust">
                 <h2>Portion: </h2>
-                <select class="select" name="portion" id="portion">
+                <select class="select" name="portion">
                 <?php 
                 foreach($portions as $portion){
 
-                        echo"<option value='".$portion["cant_pers_descrip"]."'>".$portion["cant_pers_descrip"]."</option>";
+                        echo"<option value='".$portion["cant_pers"]."'>".$portion["cant_pers_descrip"]."</option>";
                 }
                 ?>
                 </select>
@@ -102,12 +93,11 @@ if($_POST){
 
     <?php
     if(count($filtereddishes)>0){
-
         echo "<section>";
             echo "<div class='cards-container'>";
                 foreach ($filtereddishes as $filtereddish) {
                echo "<div class='cards-ctn'>";
-               echo "<a href='platillo.php?id=".$filtereddish["id_platillo"]."' class='cards-info main-course cards-ctn ' style='background: url(./img/".$dish["platillo_img"].")'>";     
+               echo "<a href='platillo.php?id=".$filtereddish["id_platillo"]."' class='cards-info main-course cards-ctn ' style='background: url(./img/".$filtereddish["platillo_img"].")'>";     
                echo "<div class='opacity'>";         
                echo "<h2 class='cards-title /*cards-title-mod*/'>".$filtereddish["platillo_nombre"]."</h2>";
                echo "<p class='card-text'>".$filtereddish["platillo_descrip"]."</p>";

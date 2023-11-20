@@ -8,9 +8,9 @@ if($_GET){
 
 if($_POST){
 
-    var_dump($_POST["password"]);
+    
     if($_POST["password"] != ""){
-
+        var_dump($_POST["password"]);
         $pass = password_hash($_POST["password"], PASSWORD_DEFAULT, ['cost' => 12]);
         $database->update("tb_usuarios",[
             "contrasena"=>$pass

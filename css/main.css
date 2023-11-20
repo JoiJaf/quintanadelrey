@@ -25,52 +25,6 @@
 /* pages */
 @import url(./pages/home.css);
 
-/* add product php */
-.add-product-div{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.a-admin{
-    color: blue;
-    text-decoration: underline;
-}
-
-.login-btn{
-    background: var(--secondary_color);
-    width: 23.563rem;
-    height: 3.5rem;
-    border: none;
-    font-family: var(--font_roboto);
-    font-size: var(--font-size-md);
-    border-radius: 2rem;
-    font-weight: 1rem;
-}
-
-.div-login-btn{
-    display: flex;
-    justify-content: center;
-}
-
-.search-btn{
-    margin-bottom: 0.5rem;
-}
-
-.navigation-link-search{
-    display: flex;
-}
-
-.div-search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20rem;
-}
-
-.search-form{
-    margin: 2rem 0rem;
-}
-
 
 /* Galaxy Tab A10.1" (2019)*/
 @media(max-width:1200px) {

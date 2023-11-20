@@ -25,6 +25,7 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
     <!-- font -->
 
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/admin-main.css">
 
 
 </head>

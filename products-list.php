@@ -41,68 +41,118 @@ foreach($products as $product){
         href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;700&family=Marcellus&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/admin-main.css">
 </head>
 <body>
-<div class="add-product-div">
-    <section>
-    <h3>Main dishes</h3>
-    <table>
-        <?php
-            foreach($maindishes as $maindishe){
-                echo "<tr>";
-                echo "<td>".$maindishe["platillo_nombre"]."</td>";
-                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$maindishe["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$maindishe["id_platillo"]."'>Delete</a></td>";
-                echo "</tr>";
-            }
-        ?>
-    </table>
-    
-    
 
-    </section>
+<header>
+    <div class="div-header-admin">
+            <div class="div-return-btn">
+            <a class="return-btn" href="index.php">Return</a>
+            </div>
+            <h1 class="title-admin">Dishes Management</h1>
+            <div class="div-return-btn">
+            <a class="return-btn" href="admin/add-product.php">Add new recipe</a>
+            </div>
+
+    </div>
+</header>
+
+
+<div class="add-product-div">
+
+    <div class="div-colum-admin">
     <section>
-    <h3>Appetizers</h3>
+    <div class="div-list-dish-adim">
+    <h3 class="table-title-admin">Appetizers</h3>
+    <img class="icon-admin" src='./img/lettuce.svg' alt='main-dish'>
+    </div>
+    <div class="div-table-admin">
     <table>
         <?php
             foreach($appetizers as $appetizer){
                 echo "<tr>";
-                echo "<td>".$appetizer["platillo_nombre"]."</td>";
+                echo "<td class='width-text'>".$appetizer["platillo_nombre"]."</td>";
                 echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$appetizer["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$appetizer["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
     </table>
-
+    </div>
     </section>
+    </div>
+
+    <div class="div-colum-admin">
     <section>
-    <h3>Drinks</h3>
+    <div class="div-list-dish-adim">
+    <h3 class="table-title-admin">Main dishes</h3>
+    <img class="icon-admin" src='./img/dish.svg' alt='main-dish'>
+    </div>
+    <div class="div-table-admin">
+    <table>
+        <?php
+            foreach($maindishes as $maindishe){
+                echo "<tr>";
+                echo "<td class='width-text'>".$maindishe["platillo_nombre"]."</td>";
+                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$maindishe["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$maindishe["id_platillo"]."'>Delete</a></td>";
+                echo "</tr>";
+            }
+        ?>
+    </table>
+    </div>
+    </section>
+    </div>
+
+    <div class="div-colum-admin">
+    <section>
+    <div class="div-list-dish-adim">
+    <h3 class="table-title-admin">Drinks</h3>
+    <img class="icon-admin" src='./img/cocktail.svg' alt='main-dish'>
+    </div>
+    <div class="div-table-admin">
     <table>
         <?php
             foreach($drinks as $drink){
                 echo "<tr>";
-                echo "<td>".$drink["platillo_nombre"]."</td>";
+                echo "<td class='width-text'>".$drink["platillo_nombre"]."</td>";
                 echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$drink["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$drink["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
     </table>
-
+    </div>
     </section>
+    </div>
+
+    <div class="div-colum-admin">
     <section class="add-product-sect">
-    <h3>Desserts</h3>
+    <div class="div-list-dish-adim">
+    <h3 class="table-title-admin">Desserts</h3>
+    <img class="icon-admin" src='./img/dessert.svg' alt='main-dish'>
+    </div>
+    <div class="div-table-admin">
     <table>
         <?php
             foreach($desserts as $dessert){
                 echo "<tr>";
-                echo "<td>".$dessert["platillo_nombre"]."</td>";
+                echo "<td class='width-text'>".$dessert["platillo_nombre"]."</td>";
                 echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$dessert["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$dessert["id_platillo"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
     </table>
+    </div>
     </section>
+    </div>
 </div>
 
+<footer>
+
+<div class="div-header-admin bottom-posicion">
+            <img src="img/graphic-identifier.png" alt="">
+    </div>
+
+</footer>
     
 </body>
 </html>

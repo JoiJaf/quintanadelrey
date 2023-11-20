@@ -1,4 +1,133 @@
+/* add product php */
+
+.add-product-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 2rem 2rem;
+}
+
+.a-admin{
+    color: blue;
+    text-decoration: underline;
+    margin-left: 0.5rem;
+}
+
+.login-btn{
+    background: var(--secondary_color);
+    width: 23.563rem;
+    height: 3.5rem;
+    border: none;
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-md);
+    border-radius: 2rem;
+    font-weight: 1rem;
+}
+
+.div-login-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-link-search{
+    display: flex;
+}
+
+.div-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20rem;
+}
+
+.search-form{
+    margin: 2rem 0rem;
+}
+
 .div-image{
     width: 20rem;
     height: auto;
+}
+
+.div-header-admin{
+    background-color: var(--primary_color);
+    height: 10rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: var(--font_titles);
+    font-size: var(--font-size-xxl);
+}
+
+.div-return-btn{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 2rem;
+}
+
+.return-btn{
+    background: var(--secondary_color);
+    display: flex;
+    color: black;
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-md);
+    border-radius: 2rem;
+    height: 4rem;
+    width: 12rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    
+}
+
+.icon-admin{
+    width: 2rem;
+    height: auto;
+}
+
+.div-list-dish-adim{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    background-color: var(--secondary_color);
+    border-radius: 2rem;
+    height: 3rem;
+}
+
+.div-table-admin{
+    justify-content: center;
+    display: flex;
+}
+
+.table-admin-recipe{
+    justify-content: space-between;
+}
+
+.table-title-admin{
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-md);
+}
+
+.div-colum-admin{
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-posicion{
+    margin: 0;
+    justify-content: center;
+}
+
+.width-text{
+    width: 30ch;
+    overflow: hidden;
 }
