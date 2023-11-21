@@ -40,6 +40,7 @@ if($_POST){
     <!-- font -->
 
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/admin-main.css">
 
 
 </head>

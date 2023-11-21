@@ -2,6 +2,6 @@
     session_start();
     session_destroy();
 
-    //redirect to index page
+    // redirect to index page
     header("Location: index.php");
 ?>

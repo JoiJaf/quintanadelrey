@@ -1,3 +1,7 @@
+<?php
+require_once './database.php';
+?>
+
 <div class="header-red-bar">
     <div class="header-ctn">
         <a class="logo" href="index.php">

@@ -29,7 +29,6 @@ $message="";
             if(!in_array($file_ext,$img_ext)){
                 $errors[]="File type is not supported";
                 $message="File type is not supported";
-                var_dump("error encontrado");
             }
 
             if(empty($errors)){
@@ -75,24 +74,32 @@ $message="";
     <link rel="stylesheet" href="../css/admin-main.css">
 </head>
 <body>
-<h2>New product</h2>
+
+<header>
+    <div  class="div-header-admin" style="justify-content: center;">
+    <h1  class="title-admin">New Product</h1>
+    </div>
+</header>
+
+<main>
     <?php
     echo $message;
     ?>
-    <form action="add-product.php" method="post" enctype="multipart/form-data">
+    <form  class="fomr-admin" action="add-product.php" method="post" enctype="multipart/form-data">
+    <div style="width:30rem">
     <div>
-        <label for="platillo_nombre">Name:</label>
-        <input id="platillo_nombre" name="platillo_nombre" type="text">
+        <label class="input-text-admin" for="platillo_nombre">Name:</label>
+        <input class="form-input-admin" id="platillo_nombre" name="platillo_nombre" type="text">
     </div>
 
     <div>
-    <label for="platillo_descrip">Descripcion:</label>
-    <textarea id="platillo_descrip" name="platillo_descrip" id="" cols="30" rows="10"></textarea>
+    <label class="input-text-admin"  for="platillo_descrip">Descripcion:</label>
+    <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip" id="" cols="30" rows="10"></textarea>
     </div>
 
     <div>
-        <label for="categ_nombre">Category:</label>
-        <select name="categ_nombre" id="categ_nombre">
+        <label class="input-text-admin" for="categ_nombre">Category:</label>
+        <select class="form-input-admin" name="categ_nombre" id="categ_nombre">
             <?php 
                 foreach($categories as $category){
 
@@ -103,8 +110,8 @@ $message="";
     </div>
 
     <div>
-        <label for="cant_pers">Portions:</label>
-        <select name="cant_pers" id="cant_pers">
+        <label class="input-text-admin" for="cant_pers">Portions:</label>
+        <select class="form-input-admin" name="cant_pers" id="cant_pers">
             <?php 
                 foreach($cantpaxs as $cantpax){
 
@@ -115,25 +122,65 @@ $message="";
     </div>
 
     <div>
-        <label for="platillo_precio">Price: €</label>
-        <input id="platillo_precio" name="platillo_precio" type="text" >
+        <label class="input-text-admin" for="platillo_precio">Price: €</label>
+        <input class="form-input-admin" id="platillo_precio" name="platillo_precio" type="text" >
     </div>
-    <div>
-        <label for="destacado">Outstanding:</label>
-        <input id="destacado" name="destacado" type="checkbox" onclick="toggleValue()">
+
+    <!-- prueba
+
+    <div class="toggle-button-cover">
+        <div id="button-3" class="button r">
+          <input class="checkbox" type="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+      </div>
+
+     prueba -->
+
+    <div class="div-featured-admin">
+        <label class="input-text-admin" class="input-text-admin" for="destacado">Outstanding:</label>
+
+        <div class="toggle-button-cover">
+        <div id="button-3" class="button r">
+          <input id="destacado" name="destacado" class="checkbox" type="checkbox" onclick="toggleValue()">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+      </div>
+        <!-- <input id="destacado" name="destacado" type="checkbox" onclick="toggleValue()"> -->
         <input type="hidden" id="valor" name="valor" value="0">
     </div>
 
-            <div>
-                <label for="platillo_img">Image</label>
-                <img class="div-image" id="preview" src="../img/escudo.png" alt="Preview">
-                <input id="platillo_img" type="file" name="platillo_img" onchange="readURL(this)">
+            <div class="add-btn-admin">
+                <input class="submit-btn" type="submit" value="Add Product">
+                <a class="submit-btn" href="../products-list.php">Cancel</a>
             </div>
 
-            <div>
-                <input class="submit-btn" type="submit" value="Add New Product">
+    </div>
+
+    <div class="div-image-add">
+    <div class="div-image-add">
+                <label class="input-text-admin" style="margin-bottom: 2rem" for="platillo_img">Preview</label>
+                <img class="div-image" style="margin-bottom: 2rem" id="preview" src="../img/escudo.png" alt="Preview">
+                <div class="upload-btn-wrapper">
+                <button class="btn">Upload image</button>
+                <input id="platillo_img" type="file" name="platillo_img" onchange="readURL(this)">
+                </div>
             </div>
+    </div>
+            
     </form>
+
+    </main>
+
+    <footer>
+
+<div class="div-header-admin bottom-posicion">
+            <img src="../img/graphic-identifier.png" alt="">
+    </div>
+
+</footer>
     
     <script>
         function readURL(input) {
