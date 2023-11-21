@@ -56,7 +56,7 @@ if ($_POST) {
         include("./parts/headerNav.php");
         ?>
 
-        <div class="banner-platillo" style="background: url(./img/<?php echo $dish[0]['platillo_img'] ?>)">
+        <div class="banner-platillo" style="background: url(./img/<?php echo $dish[0]['platillo_img'] ?>);  background-size: cover; height: 35rem; background-position: center center">
             <div class="mask">
 
 

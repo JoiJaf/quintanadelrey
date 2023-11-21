@@ -79,7 +79,7 @@ if($_POST){
                 <?php 
                 foreach($portions as $portion){
 
-                        echo"<option value='".$portion["cant_pers"]."'>".$portion["cant_pers_descrip"]."</option>";
+                        echo"<option value='".$portion["cant_pers"]."'>".$portion["cant_pers"]."</option>";
                 }
                 ?>
                 </select>

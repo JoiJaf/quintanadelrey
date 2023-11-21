@@ -51,6 +51,8 @@ $message="";
                "destacado"=>$_POST["valor"]
               ]);
             }
+
+            header("location: ../products-list.php");
         }
         
     }
@@ -139,7 +141,7 @@ $message="";
      prueba -->
 
     <div class="div-featured-admin">
-        <label class="input-text-admin" class="input-text-admin" for="destacado">Outstanding:</label>
+        <label  class="input-text-admin" for="destacado">Outstanding:</label>
 
         <div class="toggle-button-cover">
         <div id="button-3" class="button r">
@@ -164,9 +166,11 @@ $message="";
                 <label class="input-text-admin" style="margin-bottom: 2rem" for="platillo_img">Preview</label>
                 <img class="div-image" style="margin-bottom: 2rem" id="preview" src="../img/escudo.png" alt="Preview">
                 <div class="upload-btn-wrapper">
-                <button class="btn">Upload image</button>
-                <input id="platillo_img" type="file" name="platillo_img" onchange="readURL(this)">
-                </div>
+                <button class="btn">Upload image
+                <input id="platillo_img" class="readfile" type="file" name="platillo_img" onchange="readURL(this)">
+                </button>
+            
+            </div>
             </div>
     </div>
             

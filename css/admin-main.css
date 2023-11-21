@@ -38,9 +38,6 @@
 
 .upload-btn-wrapper input[type=file] {
     font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
     opacity: 0;
   }
 
@@ -53,6 +50,15 @@
     font-family: var(--font_roboto);
     font-size: var(--font-size-md);
     font-weight: bold;
+  }
+
+  .readfile{
+    max-width: 14rem;
+    height: 3rem;
+    position: absolute;
+    right: 22rem;
+    top: 48.5rem;
+    
   }
 
 .upload-btn{
@@ -335,4 +341,24 @@
   
   #button-3 .checkbox:checked ~ .layer {
     background-color: #b2a2a2;
+  }
+
+  
+
+  .form-edit{
+    display: grid;
+    margin: 2rem;
+    width: 50%;
+  }
+
+  .readfile-edit{
+    position: absolute;
+    left: 22rem;
+    top: 62rem;
+    margin-bottom: 2rem;
+  }
+
+  .prom{
+    margin-top: 5rem;
+    text-align: center;
   }
