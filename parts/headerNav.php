@@ -51,7 +51,7 @@ require_once './database.php';
                 echo "<a class='navigation-link' href='./logout.php'>Logout</a>";
             } else {
                 echo "<div class='login'>";
-                echo "<img class='logo-user' src='./img/user.png' alt='user-logo'>";
+                echo "<a href='./register.php'> <img class='logo-user' src='./img/user.png' alt='user-logo'> </a>";
                 echo "</div>";
                 echo "<a class='login' href='./register.php'>Login</a>";
             }

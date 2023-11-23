@@ -136,7 +136,7 @@ foreach($products as $product){
             foreach($desserts as $dessert){
                 echo "<tr>";
                 echo "<td class='width-text'>".$dessert["platillo_nombre"]."</td>";
-                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$dessert["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$dessert["id_platillo"]."'>Delete</a></td>";
+                echo "<td><a class='a-admin' href='./admin/edit-product.php?id=".$dessert["id_platillo"]."'>Edit</a> <a class='a-admin' href='./admin/delete-product.php?id=".$dessert["id_platillo"].")''>Delete</a></td>";
                 echo "</tr>";
             }
         ?>
@@ -153,6 +153,8 @@ foreach($products as $product){
     </div>
 
 </footer>
+
+
     
 </body>
 </html>

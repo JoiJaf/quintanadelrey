@@ -43,15 +43,23 @@
             </div>
 
 
-            <div class="cart-element">
-                <input class="cart-check" type="checkbox" name="" id="">
-                <img class="cart-img" src="./img/banner.png" alt="">
-                <p class="cart-text">nombre platillo</p>
-                <input class="cart-num" type="number" min="0">
-                <p class="cart-price">20$</p>
+            <?php
+            if (isset($_COOKIE['platillo_img']) && isset($_COOKIE['platillo_nombre']) && isset($_COOKIE['platillo_cantidad']) && isset($_COOKIE['platillo_precio'])) {
+         
+                ?>
 
-            </div>
-            <hr>
+            <div class="cart-element">
+                    <input class="cart-check" type="checkbox" name="" id="">
+                    <img class="cart-img" src="./img/<?php echo $_COOKIE['platillo_img']; ?>" alt="">
+                    <p class="cart-text"><?php echo $_COOKIE['platillo_nombre']; ?></p>
+                    <input class="cart-num" type="number" min="0" value="<?php echo $_COOKIE['platillo_cantidad']; ?>">
+                    <p class="cart-price"><?php echo $_COOKIE['platillo_precio']; ?>$</p>
+                </div>
+                <hr>
+
+            <?php 
+             }
+            ?>
 
             <div class="cart-element">
                 <input class="cart-check" type="checkbox" name="" id="">

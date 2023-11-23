@@ -12,6 +12,14 @@ if($_POST){
     header("location: ../products-list.php");
 }
 
+// if (isset($_GET['tb_info_platillo'])) {
+//     $delete = $_GET['id_platillo'];
+    
+//     $database->delete("tb_info_platillo", ["id_platillo" => $delete]);
+
+//     header("Location: products-list.php");
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

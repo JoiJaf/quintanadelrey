@@ -17,6 +17,12 @@ if ($_GET) {
 
     var_dump($portions);
 
+    setcookie("platillo_img", $dish[0]['platillo_img'], time() + (86400 * 30), "/");
+    setcookie("platillo_nombre", $dish[0]["platillo_nombre"], time() + (86400 * 30), "/");
+    setcookie("platillo_cantidad", 2, time() + (86400 * 30), "/");
+    setcookie("platillo_precio", $dish[0]["platillo_precio"], time() + (86400 * 30), "/");
+
+
 }
 
 if ($_POST) {
@@ -164,7 +170,7 @@ if ($_POST) {
             <div class="accompaniment">
                 <div class="accompaniment-align">
                     <h3 class="accompaniment-text">quantity</h3>
-                    <input id="quantity" class="quantity" type="number" value="1" min="0" max="8">
+                    <input name="quantity" id="quantity" class="quantity" type="number" value="1" min="0" max="8">
                 </div>
 
             </div>
@@ -184,7 +190,7 @@ if ($_POST) {
 
         <div class="ctn-btn-add">
 
-            <a href="#" class="btn-add">
+            <a href="./cart.php" class="btn-add">
                 <div class="circle">
                     <p id="quantityDish"></p>
                 </div>
