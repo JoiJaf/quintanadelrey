@@ -14,15 +14,6 @@ if ($_GET) {
         "platillo_nombre",
         "cant_pers_descrip"
     ], ["id_platillo" => $_GET["id"]]);
-
-    var_dump($portions);
-
-    setcookie("platillo_img", $dish[0]['platillo_img'], time() + (86400 * 30), "/");
-    setcookie("platillo_nombre", $dish[0]["platillo_nombre"], time() + (86400 * 30), "/");
-    setcookie("platillo_cantidad", 2, time() + (86400 * 30), "/");
-    setcookie("platillo_precio", $dish[0]["platillo_precio"], time() + (86400 * 30), "/");
-
-
 }
 
 if ($_POST) {
@@ -102,10 +93,12 @@ if ($_POST) {
 
         <!-- parte de filtros -->
 
+        <form action="cart.php" method="post">
+
         <div class="specifications">
             <div class="specifications-adjust">
                 <h2 class="specifications-text">Modality: </h2>
-                <select class="select" name="select">
+                <select class="select" name="modality">
                     <?php
                     foreach ($modalities as $modality) {
 
@@ -121,7 +114,7 @@ if ($_POST) {
 
             <div class="specifications-adjust">
                 <h2 class="specifications-text">Portions: </h2>
-                <select class="select" name="select">
+                <select class="select">
 
                     <option value="individual">
                         <?php echo $portions[0]["cant_pers_descrip"] ?>
@@ -142,7 +135,7 @@ if ($_POST) {
 
                         <select class="accompaniment-btn">
                             <option class="op" value="tortillas">tortillas</option>
-                            <option value="tortillas">maduro</option>
+                            <option value="tortillas">Ripe plantains</option>
                             <option value="tortillas">huevo</option>
 
                         </select>
@@ -157,7 +150,7 @@ if ($_POST) {
                     <h3 class="accompaniment-text">accompaniment 2</h3>
                     <div class="bg-button">
                     <select class="accompaniment-btn">
-                            <option value="tortillas">ensalada</option>
+                            <option value="tortillas">salads</option>
                             <option value="tortillas">picadillo</option>
                             <option value="tortillas">raspas</option>
 
@@ -188,21 +181,32 @@ if ($_POST) {
 
         <!-- button to add to card -->
 
-        <div class="ctn-btn-add">
+        
+        
+        
 
-            <a href="./cart.php" class="btn-add">
+        <div class="ctn-btn-add">
+            <div class="btn-add">
                 <div class="circle">
+                
                     <p id="quantityDish"></p>
                 </div>
-
                 Add to card
 
                 <p id="dish-price" class="dish-price">€
                     <?php echo $dish[0]["platillo_precio"] ?>
                 </p>
-            </a>
+            </div>
 
         </div>
+        <input type='hidden' name="id" value="<?php echo $dish[0]["id_platillo"];  ?>">
+        <input type='hidden' name="name" value="<?php echo $dish[0]["platillo_nombre"];  ?>">
+        <input type='hidden' name="img" value="<?php echo $dish[0]["platillo_img"];  ?>">
+        <input type='hidden' name="price" value="<?php echo $dish[0]["platillo_precio"]; ?>">
+
+        <input type='submit' class='submit-btn-platillos'>
+
+        </form>
 
         <!-- button to add to card -->
 

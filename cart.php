@@ -1,3 +1,38 @@
+<?php
+require_once 'database.php';
+$order=[];
+$items= json_decode($_COOKIE['cart'], true);
+$totalpay=0;
+
+foreach($items as $item){
+$totalpay+=$item["total"];
+}
+
+if ($_POST) {
+    $cart=[];
+    
+    if (isset($_COOKIE['cart'])) {
+        $data = json_decode($_COOKIE['cart'], true);
+        $cart = $data;
+    }
+
+    $order["id_platillo"]=$_POST["id"];
+    $order["platillo_nombre"]=$_POST["name"];
+    $order["platillo_img"]=$_POST["img"];
+    $order["qty"]=$_POST["quantity"];
+    $order["price"]=$_POST["price"];
+    $order["total"]=$_POST["price"]*$_POST["quantity"];
+
+    $cart[]=$order;
+    
+
+    setcookie('cart', json_encode($cart), time()+72000);
+    header("location: ./cart.php");
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,46 +77,36 @@
                 <p class="cart-titles">precio</p>
             </div>
 
-
             <?php
-            if (isset($_COOKIE['platillo_img']) && isset($_COOKIE['platillo_nombre']) && isset($_COOKIE['platillo_cantidad']) && isset($_COOKIE['platillo_precio'])) {
-         
-                ?>
+            if (isset($_COOKIE['cart'])){
 
-            <div class="cart-element">
-                    <input class="cart-check" type="checkbox" name="" id="">
-                    <img class="cart-img" src="./img/<?php echo $_COOKIE['platillo_img']; ?>" alt="">
-                    <p class="cart-text"><?php echo $_COOKIE['platillo_nombre']; ?></p>
-                    <input class="cart-num" type="number" min="0" value="<?php echo $_COOKIE['platillo_cantidad']; ?>">
-                    <p class="cart-price"><?php echo $_COOKIE['platillo_precio']; ?>$</p>
-                </div>
-                <hr>
+                foreach($items as $r_order){
 
-            <?php 
-             }
+                    echo"<div class='cart-element'>"
+                    ."<input class='cart-check' type='checkbox'>"
+                    ."<img class='cart-img' src='./img/".$r_order['platillo_img']."' alt=''>"
+                    ."<p class='cart-text'>".$r_order['platillo_nombre']."</p>"
+                    ."<input disabled class='cart-num' type='number' min='0' value='".$r_order['qty']."'>"
+                    ."<p class='cart-price'> €".$r_order['total']."</p>"
+                ."</div>"
+                ."<hr>";
+                }
+
+
+            }else{
+
+                echo "No selected dishes.";
+
+            }
             ?>
-
-            <div class="cart-element">
-                <input class="cart-check" type="checkbox" name="" id="">
-                <img class="cart-img" src="./img/banner.png" alt="">
-                <p class="cart-text">nombre platillo</p>
-                <input class="cart-num" type="number" min="0">
-                <p class="cart-price">20$</p>
-
-            </div>
-            <hr>
-
 
         </div>
 
         <div class="cart-button-ctn">
-            <input type="submit" class="fr-button cart-button" value="Clean cart">
-            <p class="btn-price">Precio total: 40$</p>
+            <input id="cleancart" type="submit" class="fr-button cart-button" value="Clean cart" onclick="cleancart()">
+            <p class="btn-price">Bill: €<?php echo $totalpay ?></p>
             <input type="submit" class="fr-button" value="Pay">
         </div>
-
-
-
 
 
 
@@ -93,7 +118,13 @@
     include("./parts/footer.php");
     ?>
 
-    <script src="./js/funtions.js"></script>
+    <script src="./js/funtions.js">
+
+        function cleancart(){
+            
+
+        }
+    </script>
 
 
 </body>
