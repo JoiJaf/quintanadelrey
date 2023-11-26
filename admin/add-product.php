@@ -10,7 +10,6 @@ $message="";
 
     
     if($_POST){
-       
 
         var_dump(isset($_FILES["platillo_img"]));
 
@@ -31,6 +30,8 @@ $message="";
                 $message="File type is not supported";
             }
 
+            
+
             if(empty($errors)){
                 //no subir archivos de mas de 2Mg
                 $filename = strtolower($_POST["platillo_nombre"]);
@@ -50,9 +51,13 @@ $message="";
                "platillo_cant_per_porci"=>$_POST["cant_pers"],
                "destacado"=>$_POST["valor"]
               ]);
+
+              header("location: ../products-list.php");
+            }else{
+                $message="error to add product";
             }
 
-            header("location: ../products-list.php");
+            
         }
         
     }
