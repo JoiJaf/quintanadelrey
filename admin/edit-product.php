@@ -7,6 +7,25 @@ $cantpaxs = $database->select("tb_cant_personas", "*");
 
 $message = "";
 
+// if (isset($_GET)) {
+
+//     $item_dish = $database->select("tb_info_platillo", [
+//         "[>]tb_categorias" => ["id_categorias" => "id_categorias"]
+//     ], [
+//         "tb_info_platillo.id_platillo",
+//         "tb_info_platillo.platillo_nombre",
+//         "tb_info_platillo.platillo_nombre_tr",
+//         "tb_info_platillo.platillo_descrip",
+//         "tb_info_platillo.platillo_descrip_tr"
+       
+//     ], [
+//         "id_destination" => $_GET["id_destination"]
+//     ]);
+
+//     var_dump($item);
+
+// }
+
 if ($_GET) {
     $data = $database->select("tb_info_platillo", "*", ["id_platillo" => $_GET["id"]]);
 }
@@ -48,9 +67,11 @@ if ($_POST) {
     }
     $database->update("tb_info_platillo", [
         "platillo_nombre" => $_POST["platillo_nombre"],
+        "platillo_nombre_tr" => $_POST["platillo_nombre_tr"],
         "platillo_img" => $img,
         "platillo_catego" => $_POST["categ_nombre"],
         "platillo_descrip" => $_POST["platillo_descrip"],
+        "platillo_descrip_tr" => $_POST["platillo_descrip_tr"],
         "platillo_precio" => $_POST["platillo_precio"],
         "platillo_cant_per_porci" => $_POST["cant_pers"],
         "destacado" => $_POST["valor"]
@@ -104,8 +125,18 @@ if ($_POST) {
         </div>
 
         <div>
-        <label class="input-text-admin"  for="platillo_descrip">Descripcion:</label>
-        <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip" id="" cols="30" rows="10"><?php echo $data[0]["platillo_descrip"]; ?></textarea>
+        <label class="input-text-admin" for="platillo_nombre_tr">Nombre español:</label>
+        <input class="form-input-admin" id="platillo_nombre" name="platillo_nombre_tr" type="text" value="<?php echo $data[0]["platillo_nombre_tr"] ?>">
+        </div>
+
+        <div>
+        <label class="input-text-admin"  for="platillo_descrip">Description:</label>
+        <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip" cols="30" rows="10"><?php echo $data[0]["platillo_descrip"]; ?></textarea>
+        </div>
+
+        <div>
+        <label class="input-text-admin"  for="platillo_descrip_tr">Descripción español:</label>
+        <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip_tr" cols="30" rows="10"><?php echo $data[0]["platillo_descrip_tr"]; ?></textarea>
         </div>
 
         <div>

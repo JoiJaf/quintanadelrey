@@ -44,9 +44,11 @@ $message="";
 
              $database->insert("tb_info_platillo",[
                "platillo_nombre"=>$_POST["platillo_nombre"],
+               "platillo_nombre_tr"=>$_POST["platillo_nombre_tr"],
                "platillo_img"=>$img,
                "platillo_catego"=>$_POST["categ_nombre"],
                "platillo_descrip"=>$_POST["platillo_descrip"],
+               "platillo_descrip_tr"=>$_POST["platillo_descrip_tr"],
                "platillo_precio"=>$_POST["platillo_precio"],
                "platillo_cant_per_porci"=>$_POST["cant_pers"],
                "destacado"=>$_POST["valor"]
@@ -100,8 +102,18 @@ $message="";
     </div>
 
     <div>
-    <label class="input-text-admin"  for="platillo_descrip">Descripcion:</label>
-    <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip" id="" cols="30" rows="10"></textarea>
+        <label class="input-text-admin" for="platillo_nombre_tr">nombre español:</label>
+        <input class="form-input-admin" id="platillo_nombre" name="platillo_nombre_tr" type="text">
+    </div>
+
+    <div>
+    <label class="input-text-admin"  for="platillo_descrip">Description:</label>
+    <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+    <label class="input-text-admin"  for="platillo_descrip_tr">Descripción español:</label>
+    <textarea class="form-input-admin" style="height:10rem" id="platillo_descrip" name="platillo_descrip_tr" cols="30" rows="10"></textarea>
     </div>
 
     <div>
