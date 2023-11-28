@@ -363,4 +363,25 @@
     text-align: center;
   }
 
-  
+  /* admin delete */
+
+  .delete-form_ctn{
+    padding: 4rem;
+    text-align: center;
+  }
+
+  .title-delete{
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-xxl);
+    padding-bottom: 1rem;
+  }
+
+  .del-text{
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-sm);
+
+  }
+
+  .delete-btn{
+    padding-top: 2rem;
+  }
