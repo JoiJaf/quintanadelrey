@@ -1,19 +1,45 @@
 <?php
-require_once 'database.php';
+require_once './database.php';
 $modalities = $database->select("tb_tipo_pedido", "*");
 $data = $database->select("tb_info_platillo", "*");
 $related = [];
 
+$link = "";
+$url_params = "";
+$lang = "";
+
 if ($_GET) {
 
-    $dish = $database->select("tb_info_platillo", "*", ["id_platillo" => $_GET["id"]]);
-    $portions = $database->select("tb_info_platillo", [
-        "[><]tb_cant_personas" => ["platillo_cant_per_porci" => "cant_pers"]
-    ], [
-        "id_platillo",
-        "platillo_nombre",
-        "cant_pers_descrip"
-    ], ["id_platillo" => $_GET["id"]]);
+    if (isset($_GET["lang"]) && $_GET["lang"] == "ES") {
+
+        $dish = $database->select("tb_info_platillo", "*", ["id_platillo" => $_GET["id"]]);
+        $portions = $database->select("tb_info_platillo", [
+            "[><]tb_cant_personas" => ["platillo_cant_per_porci" => "cant_pers"]
+        ], [
+            "id_platillo",
+            "platillo_nombre_tr",
+            "platillo_descrip_tr",
+            "cant_pers_descrip"
+        ], ["id_platillo" => $_GET["id"]]);
+
+        $dish[0]["platillo_nombre"] = $dish[0]["platillo_nombre_tr"];
+        $dish[0]["platillo_descrip"] = $dish[0]["platillo_descrip_tr"];
+
+        $url_params = "id=" . $dish[0]["id_platillo"];
+        $lang = "EN";
+    }else{
+        $dish = $database->select("tb_info_platillo", "*", ["id_platillo" => $_GET["id"]]);
+        $portions = $database->select("tb_info_platillo", [
+            "[><]tb_cant_personas" => ["platillo_cant_per_porci" => "cant_pers"]
+        ], [
+            "id_platillo",
+            "platillo_nombre",
+            "cant_pers_descrip"
+        ], ["id_platillo" => $_GET["id"]]);
+
+        $url_params = "id=" . $dish[0]["id_platillo"] . "&lang=ES";
+        $lang = "ES";
+    }
 }
 
 if ($_POST) {
@@ -67,7 +93,10 @@ if ($_POST) {
 
         <section class="dish">
             <div class="dish-information">
-                <h1 class="dish-title">
+                <?php
+                echo "<p id='lang' class='trad' onclick='getTranslation(" . $dish[0]["id_platillo"] . ")'>$lang</p>"
+                ?>
+                <h1 class="dish-title" id="platillo-nombre">
                     <?php echo $dish[0]["platillo_nombre"] ?>
                 </h1>
                 <?php
@@ -82,7 +111,7 @@ if ($_POST) {
             <h2 class="dish-subtitle">Description: </h2>
 
             <div class="dish-information">
-                <p class="dish-text">
+                <p class="dish-text" id="platillo-description">
                     <?php echo $dish[0]["platillo_descrip"] ?>
                 </p>
                 <p class="dish-price">€
@@ -187,9 +216,9 @@ if ($_POST) {
 
 
             <div class="ctn-btn-add">
-           
+
                 <div class="btn-add">
-                <input type='submit' class='submit-btn-platillos'>
+                    <input type='submit' class='submit-btn-platillos'>
                     <div class="circle">
 
                         <p id="quantityDish"></p>
@@ -290,7 +319,58 @@ if ($_POST) {
                 }
 
             });
-        });
+    });
+    </script>
+
+    <script>
+
+let requestLang = "ES";
+
+function switchLang() {
+    if (requestLang == "EN") requestLang = "ES";
+
+    else requestLang = "EN";
+    document.getElementById("lang").innerText = requestLang;
+
+}
+
+function getTranslation(id) {
+
+    let info = {
+        id_platillo: id,
+        language: requestLang
+    };
+
+    //fetch
+
+    fetch(
+        "http://localhost:80/quintanadelrey-backend/language.php", {
+        method: "POST",
+        mode: "same-origin",
+        credentials: "same-origin",
+        headers: {
+            'Accept': 'application/json,text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(info)
+    })
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data.name);
+            //console.log(data.description);
+
+            switchLang();
+            document.getElementById("platillo-nombre").innerText = data.name;
+            document.getElementById("platillo-description").innerText = data.description;
+
+
+        })
+
+        .catch(err => console.log("error: " + err));
+
+
+}
+
     </script>
 
 </body>
