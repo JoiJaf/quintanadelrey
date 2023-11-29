@@ -24,10 +24,27 @@ if ($_POST) {
     $order["total"]=$_POST["price"]*$_POST["quantity"];
 
     $cart[]=$order;
-    
 
     setcookie('cart', json_encode($cart), time()+72000);
     header("location: ./cart.php");
+}
+
+if($_GET){
+
+     if (isset($_GET["id"])&&$_GET["action"]!=0){
+         $data = json_decode($_COOKIE['cart'], true);
+         array_splice($data, $_GET["id"], 1);
+         $cart = $data;
+
+        setcookie('cart', json_encode($cart), time()+72000);
+        header("location: ./cart.php");
+
+     }else{
+        $cart=[];
+        setcookie('cart', json_encode($cart), time()+72000);
+        header("location: ./cart.php");
+     }
+
 }
 
 
@@ -75,21 +92,22 @@ if ($_POST) {
                 <p class="cart-titles">platillo</p>
                 <p class="cart-titles">cantidad</p>
                 <p class="cart-titles">precio</p>
+                
             </div>
 
             <?php
             if (isset($_COOKIE['cart'])){
 
-                foreach($items as $r_order){
-
+                foreach($items as $index=>$r_order){
+                    //<input class='cart-check' type='checkbox'>
                     echo"<div class='cart-element'>"
-                    ."<input class='cart-check' type='checkbox'>"
+                    ."<div><a  class='edit-delete-cart-btn edit-delete-cart-div' href='./cart.php?id=".$index."&&action=0'>Edit</a> <a class='edit-delete-cart-btn edit-delete-cart-div' href='./cart.php?id=".$index."&&action=1'>Delete</a></div>"
                     ."<img class='cart-img' src='./img/".$r_order['platillo_img']."' alt=''>"
                     ."<p class='cart-text'>".$r_order['platillo_nombre']."</p>"
                     ."<input disabled class='cart-num' type='number' min='0' value='".$r_order['qty']."'>"
                     ."<p class='cart-price'> €".$r_order['total']."</p>"
-                ."</div>"
-                ."<hr>";
+                    ."</div>"
+                    ."<hr>";
                 }
 
 
@@ -103,7 +121,7 @@ if ($_POST) {
         </div>
 
         <div class="cart-button-ctn">
-            <input id="cleancart" type="submit" class="fr-button cart-button" value="Clean cart" onclick="cleancart()">
+            <input id="cleancart" type="submit" class="fr-button cart-button" value="Clean cart">
             <p class="btn-price">Bill: €<?php echo $totalpay ?></p>
             <input type="submit" class="fr-button" value="Pay">
         </div>
@@ -120,10 +138,6 @@ if ($_POST) {
 
     <script src="./js/funtions.js">
 
-        function cleancart(){
-            
-
-        }
     </script>
 
 

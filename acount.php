@@ -85,7 +85,7 @@ if($_POST){
 
                     <hr>
 
-                    <a href="orders.php">
+                    <a href="orders.php?id=<?php echo $user[0]["id_usuario"]?>">
                         <li class="sb-ctn-link">
 
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart"

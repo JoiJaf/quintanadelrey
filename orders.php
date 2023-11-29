@@ -19,6 +19,7 @@ require_once 'database.php';
     <!-- font -->
 
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/admin-main.css">
 
 
 
@@ -48,7 +49,7 @@ require_once 'database.php';
 
             <aside class="sidebar">
                 <ul class="list-pr">
-                    <a href="acount.php">
+                    <a href="acount.php?id=<?php echo $_GET["id"];?>">
                         <li class="sb-ctn-link">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"

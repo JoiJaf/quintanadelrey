@@ -199,7 +199,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Nombre: </p>
+                                <p class="register-text">Name: </p>
                                 <input name="firstName" class="fr-input_log" type="text" class=""></input>
                             </div>
 
@@ -208,7 +208,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Apellidos: </p>
+                                <p class="register-text">Last name: </p>
                                 <input name="lastName" class="fr-input_log" type="text" class=""></input>
                             </div>
 
@@ -217,7 +217,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Identificacion: </p>
+                                <p class="register-text">ID: </p>
                                 <input name="id" class="fr-input_log" type="text" class=""></input>
                             </div>
 
@@ -226,7 +226,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Usuario: </p>
+                                <p class="register-text">User: </p>
                                 <input name="user" class="fr-input_log" type="text" class=""></input>
                             </div>
 
@@ -235,7 +235,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Contraseña: </p>
+                                <p class="register-text">Password: </p>
                                 <input name="password" class="fr-input_log" type="password" class=""></input>
                             </div>
 
@@ -244,7 +244,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Teléfono: </p>
+                                <p class="register-text">Phone: </p>
                                 <input name="phone" class="fr-input_log" type="text" class=""></input>
                             </div>
 
@@ -253,7 +253,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Correo: </p>
+                                <p class="register-text">Email: </p>
                                 <input name="email" class="fr-input_log" type="text" class=""></input>
                             </div>
 
@@ -262,7 +262,7 @@ if ($_GET) {
 
                         <div class="register">
                             <div class="register-align">
-                                <p class="register-text">Fecha de nacimiento: </p>
+                                <p class="register-text">Birthday: </p>
                                 <input name="birthday" class="fr-input_log" type="date" class=""></input>
                             </div>
 
