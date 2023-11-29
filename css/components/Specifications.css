@@ -85,6 +85,8 @@
     background: var(--primary_color);
     border-radius: 2rem;
     padding: .8rem 5rem;
+    border-style: none;
+    font-family: var(--font_roboto);
 }
 
 
