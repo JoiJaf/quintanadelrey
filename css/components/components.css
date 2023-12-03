@@ -232,8 +232,10 @@
     border: 2px solid var(--primary_color);
     font-family: var(--font_roboto);
     font-size: var(--font-size-sm);
-    padding: 1rem;
+    padding: 1vw;
     cursor: pointer;
+    width: 1vw;
+    height: 1vw;
 }
 
 .trad:hover{
@@ -325,7 +327,9 @@
 
 }
 
-
+.dish-img{
+    height: 4vw;
+}
 
 .dish-img:hover {
     transform: rotate(360deg);

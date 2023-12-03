@@ -2,6 +2,12 @@
 require_once 'database.php';
 
 
+if($_GET){
+    $user=$database->select("tb_usuarios","*",["id_usuario"=>$_GET["id"]]);
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

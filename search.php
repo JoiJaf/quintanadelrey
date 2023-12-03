@@ -113,7 +113,7 @@ if ($_POST) {
             echo "</section>";
 
         } else {
-            echo $message;
+            echo "<p class='message'>$message </p> " ;
         }
         ?>
 

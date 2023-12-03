@@ -39,3 +39,9 @@
     font-size: var(--font-size-nm);
 
 }
+
+.message{
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
