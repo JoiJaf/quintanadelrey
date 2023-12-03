@@ -101,12 +101,6 @@
     display: flex;
 }
 
-.div-search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20rem;
-}
 
 .search-form{
     margin: 2rem 0rem;
@@ -385,7 +379,6 @@
   .delete-btn{
     padding-top: 2rem;
   }
-  
   .edit-delete-cart-btn{
     color: white;
     font-family: var(--font_roboto);
@@ -402,3 +395,5 @@
     background:black;
     border-radius: 2rem;
   }
+
+

@@ -1,17 +1,20 @@
-.specifications{
+.specifications {
     background: var(--primary_color);
     padding: 3rem 8rem;
     display: flex;
     justify-content: space-around;
 }
 
-.specifications-adjust{
+.specifications-adjust {
     display: flex;
-    column-gap: 4rem ;
+    column-gap: 1vw;
     align-items: center;
+    font-family: var(--font_marcellus);
+    font-size: var(--font-size-sm);
+    font-weight: lighter;
 }
 
-.specifications-text{
+.specifications-text {
     font-family: var(--font_roboto);
     font-size: var(--font-size-xl);
     font-weight: bold;
@@ -19,7 +22,7 @@
     margin: 0;
 }
 
-.select{
+.select {
     background: var(--primary_color);
     border: 0.063rem solid var(--white);
     border-radius: 2rem;
@@ -28,12 +31,12 @@
     font-size: var(--font-size-md);
     padding: .5rem 1.5rem;
     outline: none;
-    cursor: pointer;  
+    cursor: pointer;
     margin: 0;
-      
+
 }
 
-.select option{
+.select option {
     background-color: var(--white);
     color: black;
 }
@@ -42,29 +45,29 @@
 /* detalles */
 
 
-.accompaniment{
+.accompaniment {
     margin: 4rem 9rem;
     border-style: solid;
     border-radius: 2rem;
     padding: 1rem 2rem;
 }
 
-.accompaniment-align{
+.accompaniment-align {
     display: flex;
     justify-content: space-between;
     margin: 1rem 0;
 }
 
-.accompaniment-text{
-    font-family: var(--font_roboto) ;
-    font-size: var(--font-size-lg) ;
+.accompaniment-text {
+    font-family: var(--font_roboto);
+    font-size: var(--font-size-lg);
     font-weight: bold;
     display: flex;
     align-items: center;
 
 }
 
-.accompaniment-btn{
+.accompaniment-btn {
     color: var(--primary_color);
     text-align: center;
     display: inline-block;
@@ -73,35 +76,36 @@
     font-family: var(--font_roboto);
     font-size: var(--font-size-nm);
     font-weight: 800;
-    
+
     cursor: pointer;
 }
 
-.op{
+.op {
     color: black;
 }
 
-.bg-button{
+.bg-button {
     background: var(--primary_color);
     border-radius: 2rem;
     padding: .8rem 5rem;
     border-style: none;
     font-family: var(--font_roboto);
+    color: var(--white);
 }
 
 
-.bg-button:hover{
+.bg-button:hover {
     transform: scale(.940);
     transition: 600ms;
     background: rgb(105, 1, 10);
 }
 
-.low-bar{
+.low-bar {
     height: 0.1875rem;
     background: var(--primary_color);
 }
 
-.quantity{
+.quantity {
     display: block;
     background: var(--primary_color);
     font-family: var(--font_roboto);
@@ -110,18 +114,18 @@
     border-radius: 2rem;
     width: 11.5rem;
     padding: .8rem 1rem;
-    color: var(--white); 
+    color: var(--white);
     outline: none;
 }
 
-.notes-add{
+.notes-add {
     font-family: var(--font_roboto);
     font-size: var(--font-size-xl);
     font-weight: bold;
     text-align: center;
 }
 
-.text-area{
+.text-area {
     width: 100%;
     margin-top: 1rem;
     border-style: none;
@@ -129,10 +133,3 @@
     font-family: var(--font_roboto);
     font-size: var(--font-size-md);
 }
-
-
-
-
-
-
-

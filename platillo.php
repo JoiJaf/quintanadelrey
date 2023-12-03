@@ -27,7 +27,7 @@ if ($_GET) {
 
         $url_params = "id=" . $dish[0]["id_platillo"];
         $lang = "EN";
-    }else{
+    } else {
         $dish = $database->select("tb_info_platillo", "*", ["id_platillo" => $_GET["id"]]);
         $portions = $database->select("tb_info_platillo", [
             "[><]tb_cant_personas" => ["platillo_cant_per_porci" => "cant_pers"]
@@ -41,6 +41,7 @@ if ($_GET) {
         $lang = "ES";
     }
 }
+
 
 if ($_POST) {
 
@@ -95,7 +96,7 @@ if ($_POST) {
             <div class="dish-information">
                 <?php
                 echo "<p id='lang' class='trad' onclick='getTranslation(" . $dish[0]["id_platillo"] . ")'>$lang</p>"
-                ?>
+                    ?>
                 <h1 class="dish-title" id="platillo-nombre">
                     <?php echo $dish[0]["platillo_nombre"] ?>
                 </h1>
@@ -123,122 +124,251 @@ if ($_POST) {
 
         <!-- parte de filtros -->
 
-        <form action="cart.php" method="post">
+        <?php
+        if (isset($_SESSION["isLoggedIn"])) {
+            ?>
 
-            <div class="specifications">
-                <div class="specifications-adjust">
-                    <h2 class="specifications-text">Modality: </h2>
-                    <select class="select" name="modality">
-                        <?php
-                        foreach ($modalities as $modality) {
+            <form action="cart.php" method="post">
 
-                            echo "<option value='" . $modality["pedido_descripcion"] . "'>" . $modality["pedido_descripcion"] . "</option>";
-                        }
-                        ?>
-                        <!-- <option value="lounge">lounge</option>
+                <div class="specifications">
+                    <div class="specifications-adjust">
+                        <h2 class="specifications-text">Modality: </h2>
+                        <select class="select" name="modality">
+                            <?php
+                            foreach ($modalities as $modality) {
+
+                                echo "<option value='" . $modality["pedido_descripcion"] . "'>" . $modality["pedido_descripcion"] . "</option>";
+                            }
+                            ?>
+                            <!-- <option value="lounge">lounge</option>
                     <option value="express" selected>Express</option>
                     <option value="go">Go to take away</option> -->
-                    </select>
-                    <!-- <img src="./img/modality.png" alt="Modality"> -->
-                </div>
+                        </select>
+                        <!-- <img src="./img/modality.png" alt="Modality"> -->
+                    </div>
 
-                <div class="specifications-adjust">
-                    <h2 class="specifications-text">Portions: </h2>
-                    <select class="select">
+                    <div class="specifications-adjust">
+                        <h2 class="specifications-text">Portions: </h2>
+                        <select class="select">
 
-                        <option value="individual">
-                            <?php echo $portions[0]["cant_pers_descrip"] ?>
-                        </option>
-                        <!-- <option value="couples" selected>Couples</option>
+                            <option value="individual">
+                                <?php echo $portions[0]["cant_pers_descrip"] ?>
+                            </option>
+                            <!-- <option value="couples" selected>Couples</option>
                     <option value="familiar">Familiar</option> -->
-                    </select>
-                    <!-- <img src="./img/portions.png" alt="portions"> -->
+                        </select>
+                        <!-- <img src="./img/portions.png" alt="portions"> -->
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="details-ctn">
+                    <div class="accompaniment">
+                        <div class="accompaniment-align">
+                            <h3 class="accompaniment-text">accompaniment 1</h3>
+                            <div class="bg-button">
 
-            <div class="details-ctn">
-                <div class="accompaniment">
-                    <div class="accompaniment-align">
-                        <h3 class="accompaniment-text">accompaniment 1</h3>
-                        <div class="bg-button">
+                                <select class="accompaniment-btn">
+                                    <option class="op" value="tortillas">tortillas</option>
+                                    <option value="tortillas">Ripe plantains</option>
+                                    <option value="tortillas">huevo</option>
 
-                            <select class="accompaniment-btn">
-                                <option class="op" value="tortillas">tortillas</option>
-                                <option value="tortillas">Ripe plantains</option>
-                                <option value="tortillas">huevo</option>
+                                </select>
 
-                            </select>
+                            </div>
 
+                        </div>
+
+                        <hr class="low-bar">
+
+                        <div class="accompaniment-align">
+                            <h3 class="accompaniment-text">accompaniment 2</h3>
+                            <div class="bg-button">
+                                <select class="accompaniment-btn">
+                                    <option value="tortillas">salads</option>
+                                    <option value="tortillas">picadillo</option>
+                                    <option value="tortillas">raspas</option>
+
+                                </select>
+                            </div>
                         </div>
 
                     </div>
 
-                    <hr class="low-bar">
-
-                    <div class="accompaniment-align">
-                        <h3 class="accompaniment-text">accompaniment 2</h3>
-                        <div class="bg-button">
-                            <select class="accompaniment-btn">
-                                <option value="tortillas">salads</option>
-                                <option value="tortillas">picadillo</option>
-                                <option value="tortillas">raspas</option>
-
-                            </select>
+                    <div class="accompaniment">
+                        <div class="accompaniment-align">
+                            <h3 class="accompaniment-text">quantity</h3>
+                            <input name="quantity" id="quantity" class="quantity" type="number" value="1" min="0" max="8">
                         </div>
+
+                    </div>
+
+                    <h2 class="notes-add">additional notes</h2>
+
+                    <div class="accompaniment">
+                        <input type="text" class="text-area" placeholder="Write the instructions you need."></input>
+                        <hr class="low-bar">
+
+
                     </div>
 
                 </div>
 
-                <div class="accompaniment">
-                    <div class="accompaniment-align">
-                        <h3 class="accompaniment-text">quantity</h3>
-                        <input name="quantity" id="quantity" class="quantity" type="number" value="1" min="0" max="8">
+                <!-- button to add to card -->
+
+
+
+
+
+                <div class="ctn-btn-add">
+
+                    <div class="btn-add">
+                        <input type='submit' class='submit-btn-platillos'>
+                        <div class="circle">
+
+                            <p id="quantityDish"></p>
+                        </div>
+                        Add to card
+
+                        <p id="dish-price" class="dish-price">€
+                            <?php echo $dish[0]["platillo_precio"] ?>
+                        </p>
+
+                    </div>
+                </div>
+                <input type='hidden' name="id" value="<?php echo $dish[0]["id_platillo"]; ?>">
+                <input type='hidden' name="name" value="<?php echo $dish[0]["platillo_nombre"]; ?>">
+                <input type='hidden' name="img" value="<?php echo $dish[0]["platillo_img"]; ?>">
+                <input type='hidden' name="price" value="<?php echo $dish[0]["platillo_precio"]; ?>">
+
+
+
+            </form>
+
+            <?php
+        } else {
+            ?>
+
+            <form action="register.php" method="post">
+
+                <div class="specifications">
+                    <div class="specifications-adjust">
+                        <h2 class="specifications-text">Modality: </h2>
+                        <select class="select" name="modality">
+                            <?php
+                            foreach ($modalities as $modality) {
+
+                                echo "<option value='" . $modality["pedido_descripcion"] . "'>" . $modality["pedido_descripcion"] . "</option>";
+                            }
+                            ?>
+                            <!-- <option value="lounge">lounge</option>
+        <option value="express" selected>Express</option>
+        <option value="go">Go to take away</option> -->
+                        </select>
+                        <!-- <img src="./img/modality.png" alt="Modality"> -->
+                    </div>
+
+                    <div class="specifications-adjust">
+                        <h2 class="specifications-text">Portions: </h2>
+                        <select class="select">
+
+                            <option value="individual">
+                                <?php echo $portions[0]["cant_pers_descrip"] ?>
+                            </option>
+                            <!-- <option value="couples" selected>Couples</option>
+        <option value="familiar">Familiar</option> -->
+                        </select>
+                        <!-- <img src="./img/portions.png" alt="portions"> -->
                     </div>
 
                 </div>
 
-                <h2 class="notes-add">additional notes</h2>
+                <div class="details-ctn">
+                    <div class="accompaniment">
+                        <div class="accompaniment-align">
+                            <h3 class="accompaniment-text">accompaniment 1</h3>
+                            <div class="bg-button">
 
-                <div class="accompaniment">
-                    <input type="text" class="text-area" placeholder="Write the instructions you need."></input>
-                    <hr class="low-bar">
+                                <select class="accompaniment-btn">
+                                    <option class="op" value="tortillas">tortillas</option>
+                                    <option value="tortillas">Ripe plantains</option>
+                                    <option value="tortillas">huevo</option>
 
+                                </select>
 
-                </div>
+                            </div>
 
-            </div>
+                        </div>
 
-            <!-- button to add to card -->
+                        <hr class="low-bar">
 
+                        <div class="accompaniment-align">
+                            <h3 class="accompaniment-text">accompaniment 2</h3>
+                            <div class="bg-button">
+                                <select class="accompaniment-btn">
+                                    <option value="tortillas">salads</option>
+                                    <option value="tortillas">picadillo</option>
+                                    <option value="tortillas">raspas</option>
 
+                                </select>
+                            </div>
+                        </div>
 
-
-
-            <div class="ctn-btn-add">
-
-                <div class="btn-add">
-                    <input type='submit' class='submit-btn-platillos'>
-                    <div class="circle">
-
-                        <p id="quantityDish"></p>
                     </div>
-                    Add to card
 
-                    <p id="dish-price" class="dish-price">€
-                        <?php echo $dish[0]["platillo_precio"] ?>
-                    </p>
+                    <div class="accompaniment">
+                        <div class="accompaniment-align">
+                            <h3 class="accompaniment-text">quantity</h3>
+                            <input name="quantity" id="quantity" class="quantity" type="number" value="1" min="0" max="8">
+                        </div>
+
+                    </div>
+
+                    <h2 class="notes-add">additional notes</h2>
+
+                    <div class="accompaniment">
+                        <input type="text" class="text-area" placeholder="Write the instructions you need."></input>
+                        <hr class="low-bar">
+
+
+                    </div>
 
                 </div>
-            </div>
-            <input type='hidden' name="id" value="<?php echo $dish[0]["id_platillo"]; ?>">
-            <input type='hidden' name="name" value="<?php echo $dish[0]["platillo_nombre"]; ?>">
-            <input type='hidden' name="img" value="<?php echo $dish[0]["platillo_img"]; ?>">
-            <input type='hidden' name="price" value="<?php echo $dish[0]["platillo_precio"]; ?>">
+
+                <!-- button to add to card -->
 
 
 
-        </form>
+
+
+                <div class="ctn-btn-add">
+
+                    <div class="btn-add">
+                        <input type='submit' class='submit-btn-platillos'>
+                        <div class="circle">
+
+                            <p id="quantityDish"></p>
+                        </div>
+                        Add to card
+
+                        <p id="dish-price" class="dish-price">€
+                            <?php echo $dish[0]["platillo_precio"] ?>
+                        </p>
+
+                    </div>
+                </div>
+                <input type='hidden' name="id" value="<?php echo $dish[0]["id_platillo"]; ?>">
+                <input type='hidden' name="name" value="<?php echo $dish[0]["platillo_nombre"]; ?>">
+                <input type='hidden' name="img" value="<?php echo $dish[0]["platillo_img"]; ?>">
+                <input type='hidden' name="price" value="<?php echo $dish[0]["platillo_precio"]; ?>">
+
+
+
+            </form>
+
+            <?php
+        }
+        ?>
 
         <!-- button to add to card -->
 
@@ -319,57 +449,57 @@ if ($_POST) {
                 }
 
             });
-    });
+        });
     </script>
 
     <script>
 
-let requestLang = "ES";
+        let requestLang = "ES";
 
-function switchLang() {
-    if (requestLang == "EN") requestLang = "ES";
+        function switchLang() {
+            if (requestLang == "EN") requestLang = "ES";
 
-    else requestLang = "EN";
-    document.getElementById("lang").innerText = requestLang;
+            else requestLang = "EN";
+            document.getElementById("lang").innerText = requestLang;
 
-}
+        }
 
-function getTranslation(id) {
+        function getTranslation(id) {
 
-    let info = {
-        id_platillo: id,
-        language: requestLang
-    };
+            let info = {
+                id_platillo: id,
+                language: requestLang
+            };
 
-    //fetch
+            //fetch
 
-    fetch(
-        "http://localhost:80/quintanadelrey-backend/language.php", {
-        method: "POST",
-        mode: "same-origin",
-        credentials: "same-origin",
-        headers: {
-            'Accept': 'application/json,text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(info)
-    })
-        .then(response => response.json())
-        .then(data => {
-            //console.log(data.name);
-            //console.log(data.description);
+            fetch(
+                "http://localhost:80/quintanadelrey-backend/language.php", {
+                method: "POST",
+                mode: "same-origin",
+                credentials: "same-origin",
+                headers: {
+                    'Accept': 'application/json,text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(info)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    //console.log(data.name);
+                    //console.log(data.description);
 
-            switchLang();
-            document.getElementById("platillo-nombre").innerText = data.name;
-            document.getElementById("platillo-description").innerText = data.description;
-
-
-        })
-
-        .catch(err => console.log("error: " + err));
+                    switchLang();
+                    document.getElementById("platillo-nombre").innerText = data.name;
+                    document.getElementById("platillo-description").innerText = data.description;
 
 
-}
+                })
+
+                .catch(err => console.log("error: " + err));
+
+
+        }
 
     </script>
 
