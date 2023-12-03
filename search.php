@@ -24,6 +24,7 @@ if ($_POST) {
     }
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +71,13 @@ if ($_POST) {
                         <?php
                         foreach ($categories as $category) {
 
-                            echo "<option value='" . $category["categ_nombre"] . "'>" . $category["categ_nombre"] . "</option>";
+                            if(isset($_GET["category"])){
+
+                            }else{
+                                echo "<option value='" . $category["categ_nombre"] . "'>" . $category["categ_nombre"] . "</option>";
+                            }
+
+                            
                         }
                         ?>
                     </select>
