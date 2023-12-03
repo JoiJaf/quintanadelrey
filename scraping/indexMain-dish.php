@@ -98,7 +98,7 @@ for($i=0; $i<16; $i++){
     $database->insert("tb_info_platillo", [
         "platillo_nombre" => $names[$i],
         "platillo_img" =>  "main-dish-".$filenames[$i].".jpg",
-        "platillo_catego" =>  "Main dish",
+        "platillo_catego" =>  "Main dishes",
         "platillo_descrip" => $descriptions[$i],
         "platillo_precio" => rand(1*10, 70*10)/10,
         "platillo_cant_per_porci" => rand(1, 4),
