@@ -252,6 +252,10 @@
         gap: 1rem;
     }
 
+    .div-search{
+        flex-direction: column;
+    }
+
     .select {
         padding: .2rem .5rem;
         width: 5.5em;
@@ -335,7 +339,7 @@
     }
 
     .cards-ctn {
-        width: 41vw;
+        width: 60vw;
     }
 
     .arrow{

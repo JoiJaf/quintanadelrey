@@ -325,8 +325,10 @@
 
 }
 
+
+
 .dish-img:hover {
-    transform: rotate(214deg);
+    transform: rotate(360deg);
     transition: 500ms;
 }
 
@@ -362,6 +364,17 @@
     font-size: var(--font-size-nm);
     font-family: var(--font_roboto);
 }
+
+/* filters */
+
+.div-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+}
+
+
 
 
 /* cart */

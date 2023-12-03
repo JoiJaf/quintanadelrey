@@ -51,7 +51,7 @@ if ($_POST) {
         ?>
         <input type="hidden" name="delete" id="delete" value="<?php echo $_GET["id"]; ?>">
         <div class="delete-btn">
-            <input class="bg-button" type="submit" value="delete">
+            <input class="bg-button white" type="submit" value="delete">
             <a class="bg-button" href="../products-list.php"> Go back</a>
         </div>
 

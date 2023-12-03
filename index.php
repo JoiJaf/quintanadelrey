@@ -41,17 +41,17 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
         <div class="banner">
             <div class="mask">
                 <div class="ctn-bnr">
-                <h1 class="bnr-title">
-                    Welcome
-                </h1>
-                <h4 class="bnr-text">
-                    It is a pleasure to offer our service.
-                    ¡Conquering palates!
-                </h4>
+                    <h1 class="bnr-title">
+                        Welcome
+                    </h1>
+                    <h4 class="bnr-text">
+                        It is a pleasure to offer our service.
+                        ¡Conquering palates!
+                    </h4>
 
-                <a class="bnr-button bnr-fund" href="index.php">Reserve now</a>
+                    <a class="bnr-button bnr-fund" href="index.php">Reserve now</a>
                 </div>
-                
+
 
             </div>
         </div>
@@ -102,29 +102,28 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
 
                 <div class="inf-carousels-container">
 
-                <?php
+                    <?php
 
-                    foreach($featured as $itemfeatured){
+                    foreach ($featured as $itemfeatured) {
                         echo "<div class='carousel'>";
                         echo "<div class='carousels-image-container'>";
-                        echo "<a href='platillo.php?id=".$itemfeatured["id_platillo"]."' class='image-mask'>";  
-                        echo "<img class='carousels-image' src='./img/".$itemfeatured["platillo_img"]."' alt='dish'>";
-                        echo "</a>";        
-                        echo "</div>";    
-                        echo "<div class='information-container'>";    
-                        echo "<h3 class='carousels-information-title'>".$itemfeatured["platillo_nombre"]."</h3>";        
-                        echo "<p class='carousels-parr'>".$itemfeatured["platillo_descrip"]."</p>";        
-                        echo "<div class='carousels-button'>";        
-                        echo "<a class='btn-inf' href='platillo.php?id=".$itemfeatured["id_platillo"]."'>Order now</a>";            
+                        echo "<a href='platillo.php?id=" . $itemfeatured["id_platillo"] . "' class='image-mask'>";
+                        echo "<img class='carousels-image' src='./img/" . $itemfeatured["platillo_img"] . "' alt='dish'>";
+                        echo "</a>";
+                        echo "</div>";
+                        echo "<div class='information-container'>";
+                        echo "<h3 class='carousels-information-title'>" . $itemfeatured["platillo_nombre"] . "</h3>";
+                        echo "<p class='carousels-parr'>" . $itemfeatured["platillo_descrip"] . "</p>";
+                        echo "<div class='carousels-button'>";
+                        echo "<a class='btn-inf' href='platillo.php?id=" . $itemfeatured["id_platillo"] . "'>Order now</a>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
                     }
-                ?>
-            </div>
+                    ?>
+                </div>
 
-            <div 
-            class="arrow-container"><img class="arrow arrow-right" src="./img/right_arrow.svg"
+                <div class="arrow-container"><img class="arrow arrow-right" src="./img/right_arrow.svg"
                         alt="right-arrow"></div>
             </div>
         </div>
