@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+$modalities = $database->select("tb_tipo_pedido", "*");
 $order=[];
 $items= json_decode($_COOKIE['cart'], true);
 $totalpay=0;
@@ -25,7 +26,7 @@ if ($_POST) {
 
     $cart[]=$order;
 
-    setcookie('cart', json_encode($cart), time()+72000);
+    setcookie('cart', json_encode($cart), time()+900);
     header("location: ./cart.php");
 }
 
@@ -36,12 +37,11 @@ if($_GET){
          array_splice($data, $_GET["id"], 1);
          $cart = $data;
 
-        setcookie('cart', json_encode($cart), time()+72000);
+        setcookie('cart', json_encode($cart), time()+900);
         header("location: ./cart.php");
 
      }else{
-        $cart=[];
-        setcookie('cart', json_encode($cart), time()+72000);
+        setcookie('cart', '', time()-3600);
         header("location: ./cart.php");
      }
 
@@ -101,7 +101,7 @@ if($_GET){
                 foreach($items as $index=>$r_order){
                     //<input class='cart-check' type='checkbox'>
                     echo"<div class='cart-element'>"
-                    ."<div><a  class='edit-delete-cart-btn edit-delete-cart-div' href='./cart.php?id=".$index."&&action=0'>Edit</a> <a class='edit-delete-cart-btn edit-delete-cart-div' href='./cart.php?id=".$index."&&action=1'>Delete</a></div>"
+                    ."<div><a  class='edit-delete-cart-btn edit-delete-cart-div' href='#'>Edit</a> <a class='edit-delete-cart-btn edit-delete-cart-div' href='./cart.php?id=".$index."&&action=1'>Delete</a></div>"
                     ."<img class='cart-img' src='./img/".$r_order['platillo_img']."' alt=''>"
                     ."<p class='cart-text'>".$r_order['platillo_nombre']."</p>"
                     ."<input disabled class='cart-num' type='number' min='0' value='".$r_order['qty']."'>"
@@ -120,11 +120,27 @@ if($_GET){
 
         </div>
 
+        <form action="confirmation.php" method="post">
         <div class="cart-button-ctn">
-            <input id="cleancart" type="submit" class="fr-button cart-button" value="Clean cart">
+
+        <h2 class="btn-price">Modality: </h2>
+                    <select class="fr-button cart-button" name="modality">
+                        <?php
+                        foreach ($modalities as $modality) {
+
+                            echo "<option value='" . $modality["pedido_descripcion"] . "'>" . $modality["pedido_descripcion"] . "</option>";
+                        }
+                        ?>
+            </select>
+
+            <a class="fr-button cart-button" href="<?php echo "./cart.php?action=0"?>">Clean cart</a>
             <p class="btn-price">Bill: €<?php echo $totalpay ?></p>
+            <input type="hidden" name="total" id="total" value="<?php echo $totalpay; ?>">
             <input type="submit" class="fr-button" value="Pay">
         </div>
+        </form>
+
+        
 
 
 

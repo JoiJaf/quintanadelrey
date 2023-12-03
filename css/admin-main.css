@@ -385,17 +385,7 @@
   .delete-btn{
     padding-top: 2rem;
   }
-
-  .submit-btn-platillos{
-    position: absolute;
-    left: 35rem;
-    top: 139rem;
-    width: 49rem;
-    height: 7rem;
-    opacity: 1;
-    z-index: 1;
-  }
-
+  
   .edit-delete-cart-btn{
     color: white;
     font-family: var(--font_roboto);
