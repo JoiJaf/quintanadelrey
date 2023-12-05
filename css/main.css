@@ -22,6 +22,7 @@
 @import url(./components/carousels.css);
 @import url(./components/cards.css);
 @import url(./components/Specifications.css);
+@import url(./components/aboutUs.css);
 /* pages */
 @import url(./pages/home.css);
 
@@ -371,8 +372,28 @@
         margin-bottom: 2rem;
         margin-top: 2rem;
       }
-      
 
+      .container-profile{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 2rem 2vw;
+        column-gap: 4rem;
+    }
+      
+    .ctn-us{
+        display: flex;
+        margin: 2rem 2vw;
+        column-gap: 2rem;
+    
+    }
+
+    /* about us */
+
+    .term-main {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+    }
 
 }
 
@@ -853,7 +874,7 @@
 
     .logo {
         margin: 0rem 2rem 0rem 0rem;
-        width: 6rem;
+        width: 5rem;
     }
 
     .banner {

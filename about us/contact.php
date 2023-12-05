@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="../css/main.css">
 
-
 </head>
 
 <body>
@@ -27,8 +26,26 @@
     ?>
 
 
-    <main>
+    <main class="contact-main">
 
+        <div class="contact-title">
+            <h1>Contact Us</h1>
+        </div>
+
+        <section class="contact-ctn">
+            <form action="#" method="post">
+                <label class="contact-lb" for="name">Name:</label>
+                <input class="contact-input" type="text" id="name" name="name" required>
+
+                <label class="contact-lb" for="email">Email:</label>
+                <input class="contact-input" type="email" id="email" name="email" required>
+
+                <label class="contact-lb" for="message">Message:</label>
+                <textarea class="contact-input" id="message" name="message" rows="6" required></textarea>
+
+                <button class="contact-btn" type="submit">Submit</button>
+            </form>
+        </section>
     </main>
 
 
@@ -55,9 +72,9 @@
                     <a href="">
                         <li>about us</li>
                     </a>
-                    <a href="../acount.php">
-                        <li>Account</li>
-                    </a>
+                    <?php
+                    echo "<a href='../acount.php?id=" . $idsession[0]["id_usuario"] . "'> <li> " . $_SESSION["usr_name"] . " </li></a>";
+                    ?>
                     <a href="contact.php">
                         <li>Contact Us</li>
                     </a>

@@ -1,6 +1,6 @@
 .logo {
     align-items: center;
-    margin: 1rem 0;
+    margin: 1vw 0;
 }
 
 .login {
@@ -18,8 +18,8 @@
 }
 
 .logo-user {
-    width: 2.5rem;
-    height: 1.4rem;
+    width: 2.5vw;
+    height: 1.4vw;
     margin-left: 0;
     padding-left: 1rem;
 }
@@ -364,9 +364,14 @@
 .ord-list{
     display: flex;
     justify-content: space-between;
+    margin: 1vw;
 
     font-size: var(--font-size-nm);
     font-family: var(--font_roboto);
+}
+
+.ord-select{
+    padding: 0vw 4vw;
 }
 
 /* filters */
