@@ -34,7 +34,7 @@ if ($_POST) {
 if ($_GET) {
 
     if (isset($_GET["id"]) && $_GET["action"] != 0) {
-        if (count($item) < 0) {
+        if (count($item) > 0) {
             $data = json_decode($_COOKIE['cart'], true);
             array_splice($data, $_GET["id"], 1);
             $cart = $data;
@@ -95,10 +95,10 @@ if ($_GET) {
     <main>
         <div class="bg-cart">
             <div class="cart-tl-ctn">
-                <p class="cart-titles">imagen</p>
-                <p class="cart-titles">platillo</p>
-                <p class="cart-titles">cantidad</p>
-                <p class="cart-titles">precio</p>
+                <p class="cart-titles">Imagen</p>
+                <p class="cart-titles">Dish</p>
+                <p class="cart-titles">Quantity</p>
+                <p class="cart-titles">Price</p>
 
             </div>
 
@@ -145,7 +145,17 @@ if ($_GET) {
                     <?php echo $totalpay ?>
                 </p>
                 <input type="hidden" name="total" id="total" value="<?php echo $totalpay; ?>">
-                <input type="submit" class="fr-button" value="Pay">
+
+                <?php
+                if(empty($_COOKIE['cart'])){
+
+                    echo "<input disabled type='submit' class='fr-button' value='Pay'>";
+                }else{
+
+                    echo "<input type='submit' class='fr-button' value='Pay'>";
+                }
+                ?>
+                
             </div>
         </form>
 

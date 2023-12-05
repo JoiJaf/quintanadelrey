@@ -4,6 +4,7 @@ require_once 'database.php';
 
 if($_GET){
     $user=$database->select("tb_usuarios","*",["id_usuario"=>$_GET["id"]]);
+    var_dump($user);
 
 }
 
@@ -39,8 +40,22 @@ if($_GET){
 
         <?php
         include("./parts/headerNav.php");
-        ?>
 
+        $user=$_SESSION["usr_name"];
+        $historial=$database->select("tb_order_details",[
+            "[><]tb_info_platillo"=>["id_product"=>"id_platillo"],
+            "[><]tb_order"=>["id_order"=>"id_order"]
+        ],[
+            "id_platillo",
+            "tb_order_details.id_order",
+            "platillo_nombre",
+            "qty",
+            "platillo_precio",
+            "tb_order_details.total"
+        ],["user_name"=>$user]);
+
+        $orders=$database->select("tb_order","*",["user_name"=>$user]);
+        ?>
 
     </header>
 
@@ -50,7 +65,7 @@ if($_GET){
 
         <section class="ctn-us">
             <img class="img-us" src="./img/perfil.webp" alt="">
-            <h2 class="us-name">Cuenta de usuario</h2>
+            <h2 class="us-name"><?php echo $user?></h2>
         </section>
 
         <div class="container-profile">
@@ -96,36 +111,39 @@ if($_GET){
 
 
             <div>
-                <div class="ord-tlitle">
-                    <p>Platillo</p>
-                    <p class="ord-price">Precio</p>
+                <div class="ord-tlitle" style="justify-content: center">
+                    <p>Historial</p>
+                </div>
+
+                <!-- Drex -->
+
+                <?php foreach($orders as $order){
+                ?>
+                <div class="ord-tlitle" style="margin-top:2rem">
+                    <p>N° order: <?php echo $order["id_order"]; ?></p>
+                    <p>Date: <?php echo $order["date"]; ?></p>
+                    <p>Modality: <?php echo $order["tipo_pedido"]; ?></p>
+                    <p class="ord-price">Total: € <?php echo $order["total"]; ?></p>
                 </div>
                 <hr>
 
-
-                <div class="ord-list">
-                    <p>Paella</p>
-                    <p class="ord-price">20$</p>
-                </div>
-
-
-                <div class="ord-list">
-                    <p>Maruchan</p>
-                    <p class="ord-price">5$</p>
-                </div>
-
-                <div class="ord-list">
-                    <p>Medio de cantones</p>
-                    <p class="ord-price">10$</p>
-                </div>
+                <?php foreach($historial as $historials){
+                    if($historials["id_order"]==$order["id_order"]){
+                        ?>
+                            <div class="ord-list">
+                            <p><?php echo $historials["platillo_nombre"]; ?></p>
+                            <p>Quantity: <?php echo $historials["qty"]; ?></p>
+                            <p>Price: <?php echo $historials["platillo_precio"]; ?> c/u</p>
+                            <p class="ord-price">Subtotal €<?php echo $historials["total"]; ?></p>
+                            </div>
+                <?php
+                    }
+                }
+                }
+                ?>
             </div>
 
-
-
-
     </main>
-
-
 
     <?php
     include("./parts/footer.php");
