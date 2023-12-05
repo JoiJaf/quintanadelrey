@@ -112,7 +112,7 @@ if($_GET){
 
             <div>
                 <div class="ord-tlitle" style="justify-content: center">
-                    <p>Historial</p>
+                    <p>Record</p>
                 </div>
 
                 <!-- Drex -->

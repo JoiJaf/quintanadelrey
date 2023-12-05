@@ -184,7 +184,7 @@ $message="";
                 <img class="div-image" style="margin-bottom: 2rem" id="preview" src="../img/escudo.png" alt="Preview">
                 <div class="upload-btn-wrapper">
                 <button class="btn">Upload image
-                <input id="platillo_img" class="readfile" type="file" name="platillo_img" onchange="readURL(this)">
+                <input id="platillo_img" class="readfile btn" type="file" name="platillo_img" onchange="readURL(this)">
                 </button>
             
             </div>

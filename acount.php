@@ -135,7 +135,7 @@ if($_POST){
                             <input class="fr-input-us" type="date" value="<?php echo $user[0]["fecha_nacimiento"]?>">
                         </div>
 
-                        <input class="fr-button" type="submit">
+                        <input class="fr-button" type="submit" value="send">
 
                     </form>
                 </div>
@@ -149,7 +149,7 @@ if($_POST){
                             <input class="fr-input-us" type="password" name="password">
                         </div>
 
-                        <input class="fr-button" type="submit">
+                        <input class="fr-button" type="submit" value="send">
                     </form>
                 </div>
 

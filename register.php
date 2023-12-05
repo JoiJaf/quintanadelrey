@@ -141,12 +141,12 @@ if ($_GET) {
                     <form class="form-ctn" method="post" action="register.php">
                         <div class="form-inputs">
                             <img src="./img/min-login.png" alt="">
-                            <input class="fr-input_log" type="text" name="userlog">
+                            <input class="fr-input_log" type="text" name="userlog" placeholder="Username">
                         </div>
 
                         <div class="form-inputs">
                             <img src="./img/min-pwd.png" alt="">
-                            <input class="fr-input_log" type="password" name="passlog">
+                            <input class="fr-input_log" type="password" name="passlog" placeholder="Password">
                         </div>
 
                         <div class="form-tools"> <!-- a esto hay que corregir y poner un width de 100%-->
@@ -175,10 +175,10 @@ if ($_GET) {
                     <hr>
 
                     <div class="login-btns">
-                        <a href="">
+                        <a href="https://www.google.com/?hl=es">
                             <img src="./img/btn_google.png" alt="">
                         </a>
-                        <a href="">
+                        <a href="https://www.bing.com/ck/a?!&&p=521e8549451a02dfJmltdHM9MTcwMTY0ODAwMCZpZ3VpZD0wMmYyNGQ0ZS03OGM5LTY3ZDctMDJlYi01YzFlNzk3NzY2OWYmaW5zaWQ9NTE5Nw&ptn=3&ver=2&hsh=3&fclid=02f24d4e-78c9-67d7-02eb-5c1e7977669f&psq=facebook&u=a1aHR0cHM6Ly9lcy1sYS5mYWNlYm9vay5jb20v&ntb=1">
                             <img src="./img/btn_face.png" alt="">
                     </div>
 
@@ -268,7 +268,7 @@ if ($_GET) {
 
                             <hr class="register-bar">
                         </div>
-                        <input class="createAcountbtn" type="submit" value="Crear Cuenta">
+                        <input class="createAcountbtn" type="submit" value="Create acount">
                         <p>
                             <?php echo $message; ?>
                         </p>

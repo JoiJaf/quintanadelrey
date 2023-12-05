@@ -21,7 +21,7 @@ if ($_GET) {
             $categories = "Main dishes";
             $description = $database->select("tb_categorias", "categ_descrip", ["categ_nombre" => "Main dishes"]);
             $banner = $database->select("tb_categorias", "categ_img", ["categ_nombre" => "Main dishes"]);
-            $dishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Main dish"]);
+            $dishes = $database->select("tb_info_platillo", "*", ["platillo_catego" => "Main dishes"]);
             break;
         case 3:
             $categories = "Desserts";

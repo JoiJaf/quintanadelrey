@@ -66,17 +66,17 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
             <div class="promos">
 
                 <div class="ctn-img">
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
 
-                    <a href="platillo.php"><img class="promos-images" src="./img/bebidas.jpg" alt="promo"></a>
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/bebidas.jpg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
 
-                    <a href="platillo.php"><img class="promos-images" src="./img/entrada.jpg" alt="promo"></a>
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
-                    <a href="platillo.php"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/entrada.jpg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
+                    <a href="#"><img class="promos-images" src="./img/promocion.jpeg" alt="promo"></a>
 
                 </div>
 
@@ -114,8 +114,8 @@ $featured = $database->select("tb_info_platillo", "*", ["destacado" => "1"]);
                         echo "<div class='information-container'>";
                         echo "<h3 class='carousels-information-title'>" . $itemfeatured["platillo_nombre"] . "</h3>";
                         echo "<p class='carousels-parr'>" . $itemfeatured["platillo_descrip"] . "</p>";
-                        echo "<div class='carousels-button'>";
-                        echo "<a class='btn-inf' href='platillo.php?id=" . $itemfeatured["id_platillo"] . "'>Order now</a>";
+                        echo "<div class=''>";
+                        echo "<a class='btn-inf carousels-button' href='platillo.php?id=" . $itemfeatured["id_platillo"] . "'>Order now</a>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";

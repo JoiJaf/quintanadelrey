@@ -22,7 +22,10 @@
                 </a>
 
                 <?php
-                echo "<a href='./acount.php?id=" . $idsession[0]["id_usuario"] . "'> <li> " . $_SESSION["usr_name"] . " </li></a>";
+
+                if (isset($_SESSION["isLoggedIn"])) {
+                    echo "<a href='./acount.php?id=" . $idsession[0]["id_usuario"] . "'> <li> " . $_SESSION["usr_name"] . " </li></a>";
+                }
                 ?>
 
                 </a>
