@@ -17,6 +17,10 @@
 
     <link rel="stylesheet" href="../css/main.css">
 
+    <style>
+
+    </style>
+
 
 </head>
 
@@ -27,10 +31,55 @@
     ?>
 
 
-    <main>
+    <main class="help">
+
+        <div class="help-ctn">
+            <h1 class="help-title">Help Center</h1>
+
+            <section class="help-sec-ctn">
+                <h2 class="help-subtitle">Frequently Asked Questions</h2>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">How do I create an account?</div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li class="accordion-text">To create an account, click on the "Login" button and fill
+                                    out the required
+                                    information.</li>
+
+                                <li class="accordion-text">You should not register a new account with previous values,
+                                    that would cause an error. </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">Can I change my password?</div>
+                            <div class="accordion-content">
+                                <ul>
+                                    <li class="accordion-text">
+                                        Yes, you can change your password in the "Account Settings"
+                                        section after logging in.
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+            </section>
+
+            <section>
+                <h2 class="help-subtitle">Contact Support</h2>
+
+                <p>If you need further assistance, please contact our support team at <a
+                        href="mailto:support@example.com">support@example.com</a>.</p>
+            </section>
+        </div>
+
 
     </main>
-
 
 
     <footer class="footer">
@@ -55,9 +104,9 @@
                     <a href="">
                         <li>about us</li>
                     </a>
-                    <a href="../acount.php">
-                        <li>Account</li>
-                    </a>
+                    <?php
+                    echo "<a href='../acount.php?id=" . $idsession[0]["id_usuario"] . "'> <li> " . $_SESSION["usr_name"] . " </li></a>";
+                    ?>
                     <a href="contact.php">
                         <li>Contact Us</li>
                     </a>
@@ -112,7 +161,22 @@
         </p>
     </footer>
 
-    <script src="./js/funtions.js"></script>
+    <script src="./js/funtions.js">
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const item = this.parentNode;
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 
 
 </body>

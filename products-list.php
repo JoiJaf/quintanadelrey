@@ -8,7 +8,7 @@ $appetizers=[];
 $desserts=[];
 
 foreach($products as $product){
-    if($product["platillo_catego"]=="Main dish"){
+    if($product["platillo_catego"]=="Main dishes"){
         $maindishes[]=$product;
         
     }else{

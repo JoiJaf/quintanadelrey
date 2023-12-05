@@ -1,13 +1,6 @@
 <?php
 require_once 'database.php';
 
-
-if($_GET){
-    $user=$database->select("tb_usuarios","*",["id_usuario"=>$_GET["id"]]);
-
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +50,7 @@ if($_GET){
 
             <aside class="sidebar">
                 <ul class="list-pr">
-                    <a href="acount.php?id=<?php echo $_GET["id"];?>">
+                    <a href="acount.php?id=<?php echo $_GET["id"]; ?>">
                         <li class="sb-ctn-link">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
@@ -97,30 +90,10 @@ if($_GET){
 
             <div>
                 <div class="ord-tlitle">
-                    <p>Platillo</p>
+                    <p>pedidos</p>
                     <p class="ord-price">Precio</p>
                 </div>
                 <hr>
-
-
-                <div class="ord-list">
-                    <p>Paella</p>
-                    <p class="ord-price">20$</p>
-                </div>
-
-
-                <div class="ord-list">
-                    <p>Maruchan</p>
-                    <p class="ord-price">5$</p>
-                </div>
-
-                <div class="ord-list">
-                    <p>Medio de cantones</p>
-                    <p class="ord-price">10$</p>
-                </div>
-            </div>
-
-
 
 
     </main>

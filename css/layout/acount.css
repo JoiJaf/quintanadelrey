@@ -38,6 +38,7 @@
     background: var(--gray);
     border-radius: 3rem;
     height: 15rem;
+    margin-bottom: 2rem;
 }
 
 .sb-text{
@@ -111,3 +112,4 @@
 .clr{
  color: var(--primary_color);
 }
+
